@@ -3,6 +3,8 @@
 # http://git-scm.com/docs/gitignore
 www/
 
+.ionic/
+
 *~
 *.sw[mnpcod]
 *.log

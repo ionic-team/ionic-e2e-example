@@ -1,26 +1,26 @@
 
-import * as IonicE2E from '@ionic/e2e';
+import { Device, IonicPage, pause, setDevice, url, waitElement, waitForLoad, web } from '@ionic/e2e';
 
 import Schedule from '../pageobjects/schedule.page';
 
-describe('schedule', () => {
+describe.only('schedule', () => {
   before(async () => {
-    await IonicE2E.waitForLoad();
+    await waitForLoad();
+    await url('/app/tabs/schedule');
   });
 
   beforeEach(async () => {
-    await IonicE2E.setDevice(IonicE2E.Device.Mobile);
-    await IonicE2E.web();
+    await web();
+    await setDevice(Device.Mobile);
+    await pause(500);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await Schedule.username.setValue('testuser');
-    await Schedule.submit();
-
-    await expect(Schedule.error).toHaveText('Incorrect password');
+  it('Should switch to favorites', async () => {
+    const favoritesButton = await Schedule.segment.button('Favorites');
+    await (await favoritesButton.$()).waitForDisplayed();
+    await favoritesButton.tap();
+    const listHeader = await (await Schedule.content.$()).$('ion-list-header');
+    await listHeader.waitForDisplayed();
+    await expect(listHeader).toHaveText('No Sessions Found');
   });
-  */
 });

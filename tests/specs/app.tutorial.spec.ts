@@ -1,6 +1,6 @@
 
 import * as IonicE2E from '@ionic/e2e';
-import { clearIndexedDB, pause, tapButton, swipeLeft, getUrl, url, setDevice, web } from '@ionic/e2e';
+import { clearIndexedDB, pause, getUrl, url, setDevice, web } from '@ionic/e2e';
 
 import Tutorial from '../pageobjects/tutorial.page';
 
@@ -17,15 +17,15 @@ describe('tutorial', () => {
   });
 
   it('Should load swiper', async () => {
-    await expect(Tutorial.swiper).toBeDisplayed();
+    await expect(await Tutorial.swiper.$()).toBeDisplayed();
   });
 
   it('Should get to schedule', async () => {
-    await swipeLeft();
-    await swipeLeft();
-    await swipeLeft();
+    await Tutorial.swiper.swipeLeft();
+    await Tutorial.swiper.swipeLeft();
+    await Tutorial.swiper.swipeLeft();
 
-    await tapButton('Continue');
+    await Tutorial.continue();
 
     await pause(1000);
 
@@ -33,7 +33,7 @@ describe('tutorial', () => {
   });
 
   it('Should skip to schedule', async () => {
-    await tapButton('Skip');
+    await Tutorial.skip();
 
     await expect((await getUrl()).pathname).toBe('/app/tabs/schedule');
   });
