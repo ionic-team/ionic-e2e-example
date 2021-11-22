@@ -1,26 +1,43 @@
 
 import * as IonicE2E from '@ionic/e2e';
+import { pause, setDevice, url, waitForLoad, web } from '@ionic/e2e';
 
 import About from '../pageobjects/about.page';
 
-describe('about', () => {
+describe.only('about', () => {
   before(async () => {
-    await IonicE2E.waitForLoad();
+    await waitForLoad();
+    await url('/app/tabs/about');
   });
 
   beforeEach(async () => {
-    await IonicE2E.setDevice(IonicE2E.Device.Mobile);
-    await IonicE2E.web();
+    await setDevice(IonicE2E.Device.Mobile);
+    await web();
+    await pause(500);
   });
 
-  /*
-  Test specs here:
+  it('Should switch location', async () => {
+    const location = await About.locationSelect;
+    await location.open();
 
-  it('Should perform action', async () => {
-    await About.username.setValue('testuser');
-    await About.submit();
+    await location.select(1);
+    await location.ok();
+    await pause(500);
+    const austinImage = await About.austinImage;
+    await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(1);
 
-    await expect(About.error).toHaveText('Incorrect password');
+    await location.open();
+    await location.select(2);
+    await location.ok();
+    await pause(500);
+    const chicagoImage = await About.chicagoImage;
+    await expect((await chicagoImage.getCSSProperty('opacity')).value).toEqual(1);
+
+    await location.open();
+    await location.select(3);
+    await location.ok();
+    await pause(500);
+    const seattleImage = await About.seattleImage;
+    await expect((await seattleImage.getCSSProperty('opacity')).value).toEqual(1);
   });
-  */
 });
