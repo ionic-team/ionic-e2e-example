@@ -17,7 +17,7 @@ describe('tutorial', () => {
   });
 
   it('Should load swiper', async () => {
-    await expect(await Tutorial.swiper.$()).toBeDisplayed();
+    await expect(await Tutorial.swiper.$).toBeDisplayed();
   });
 
   it('Should get to schedule', async () => {

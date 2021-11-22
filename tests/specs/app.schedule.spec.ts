@@ -17,9 +17,9 @@ describe.only('schedule', () => {
 
   it('Should switch to favorites', async () => {
     const favoritesButton = await Schedule.segment.button('Favorites');
-    await (await favoritesButton.$()).waitForDisplayed();
+    await (await favoritesButton.$).waitForDisplayed();
     await favoritesButton.tap();
-    const listHeader = await (await Schedule.content.$()).$('ion-list-header');
+    const listHeader = await (await Schedule.content.$).$('ion-list-header');
     await listHeader.waitForDisplayed();
     await expect(listHeader).toHaveText('No Sessions Found');
   });
