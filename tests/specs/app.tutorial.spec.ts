@@ -1,18 +1,17 @@
 
-import * as IonicE2E from '@ionic/e2e';
-import { clearIndexedDB, pause, getUrl, url, setDevice, web } from '@ionic/e2e';
+import { clearIndexedDB, pause, getUrl, url, setDevice, web, Device, waitForLoad } from '@ionic/e2e';
 
 import Tutorial from '../pageobjects/tutorial.page';
 
 describe('tutorial', () => {
   before(async () => {
-    await IonicE2E.waitForLoad();
+    await waitForLoad();
   });
 
   beforeEach(async () => {
     await web();
     await url('/');
-    await setDevice(IonicE2E.Device.Mobile);
+    await setDevice(Device.Mobile);
     await clearIndexedDB('_ionicstorage');
   });
 

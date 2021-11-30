@@ -3,7 +3,7 @@ import { Device, IonicPage, pause, setDevice, url, waitElement, waitForLoad, web
 
 import Schedule from '../pageobjects/schedule.page';
 
-describe.only('schedule', () => {
+describe('schedule', () => {
   before(async () => {
     await waitForLoad();
     await url('/app/tabs/schedule');
