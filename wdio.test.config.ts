@@ -14,6 +14,7 @@ export const config = {
       baseUrl: './',
     },
   },
+  baseUrl: "https://localhost",
   //
   // ====================
   // Runner Configuration
@@ -128,6 +129,8 @@ export const config = {
      */
     timeout: 1200000,
   },
+
+  port: 4723,
   //
   // =====
   // Hooks
@@ -166,7 +169,6 @@ export const config = {
   ],
   // From wdio.shared.local.appium.conf.ts
   capabilities: [{
-    port: 4723,
     browserName: 'chrome',
     'wdio:devtoolsOptions': {
       headless: true,
