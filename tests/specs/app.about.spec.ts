@@ -1,18 +1,16 @@
-
-import * as IonicE2E from '@ionic/e2e';
-import { pause, setDevice, url, waitForLoad, web } from '@ionic/e2e';
+import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../utils';
 
 import About from '../pageobjects/about.page';
 
 describe('about', () => {
   before(async () => {
     await waitForLoad();
-    await url('/app/tabs/about');
   });
 
   beforeEach(async () => {
-    await setDevice(IonicE2E.Device.Mobile);
-    await web();
+    await setDevice(Device.Mobile);
+    await switchToWeb();
+    await url('/app/tabs/about');
     await pause(500);
   });
 

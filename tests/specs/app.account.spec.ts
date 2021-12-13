@@ -1,16 +1,15 @@
-
-import * as IonicE2E from '@ionic/e2e';
+import { Device, setDevice, switchToWeb, waitForLoad } from '../utils';
 
 import Account from '../pageobjects/account.page';
 
 describe('account', () => {
   before(async () => {
-    await IonicE2E.waitForLoad();
+    await waitForLoad();
   });
 
   beforeEach(async () => {
-    await IonicE2E.setDevice(IonicE2E.Device.Mobile);
-    await IonicE2E.web();
+    await setDevice(Device.Mobile);
+    await switchToWeb();
   });
 
   /*

@@ -1,16 +1,15 @@
-
-import { Device, IonicPage, pause, setDevice, url, waitElement, waitForLoad, web } from '@ionic/e2e';
+import { Device, pause, setDevice, url, waitForElement, waitForLoad, switchToWeb } from '../utils';
 
 import Schedule from '../pageobjects/schedule.page';
 
 describe('schedule', () => {
   before(async () => {
     await waitForLoad();
-    await url('/app/tabs/schedule');
   });
 
   beforeEach(async () => {
-    await web();
+    await switchToWeb();
+    await url('/app/tabs/schedule');
     await setDevice(Device.Mobile);
     await pause(500);
   });

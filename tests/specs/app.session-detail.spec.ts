@@ -1,5 +1,4 @@
-import * as IonicE2E from '@ionic/e2e';
-import { Device, pause, setDevice, url, waitForLoad, web } from '@ionic/e2e';
+import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../utils';
 
 import Schedule from '../pageobjects/schedule.page';
 import SessionDetail from '../pageobjects/session-detail.page';
@@ -10,8 +9,8 @@ describe('session detail', () => {
   });
 
   beforeEach(async () => {
+    await switchToWeb();
     await url('/app/tabs/schedule/session/1');
-    await web();
     await setDevice(Device.Mobile);
     await pause(500);
   });
