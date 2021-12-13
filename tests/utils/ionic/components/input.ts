@@ -1,6 +1,6 @@
 import { IonicComponent } from './component';
-import { ElementActionOptions } from "@ionic/e2e";
 import { Ionic$ } from '..';
+import { ElementActionOptions } from '../..';
 
 export class IonicInput extends IonicComponent {
   constructor(selector: string) {

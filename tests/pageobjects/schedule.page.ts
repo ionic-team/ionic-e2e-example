@@ -1,4 +1,4 @@
-import { IonicContent, IonicMenu, IonicSegment } from '@ionic/e2e';
+import { IonicContent, IonicMenu, IonicSegment } from '../utils'
 import Page from './page';
 
 class Schedule extends Page {

@@ -12,3 +12,5 @@ export class Ionic$ {
     return activePage.$$(selector);
   }
 }
+
+export * from './components';

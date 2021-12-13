@@ -1,4 +1,3 @@
-import { ElementActionOptions } from "@ionic/e2e";
 import { IonicComponent } from "./component";
 
 export class IonicPage extends IonicComponent {

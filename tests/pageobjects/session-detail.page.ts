@@ -1,6 +1,5 @@
+import { Ionic$, IonicButton } from '../utils';
 import Page from './page';
-
-import { Ionic$, IonicButton } from '@ionic/e2e';
 
 class SessionDetail extends Page {
   get sessionTitle() { return Ionic$.$('h1') }

@@ -1,4 +1,5 @@
-import { Ionic$, IonicButton, IonicSelect } from '@ionic/e2e';
+import { Ionic$ } from '../utils/ionic';
+import { IonicButton, IonicSelect } from '../utils/ionic/components';
 import Page from './page';
 
 class About extends Page {

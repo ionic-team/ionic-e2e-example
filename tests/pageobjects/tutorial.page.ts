@@ -1,17 +1,17 @@
-import { IonicButton, IonicSwiper } from '@ionic/e2e';
+import { IonicButton, IonicSlides } from '../utils';
 import Page from './page';
 
 class Tutorial extends Page {
-  get swiper() { return new IonicSwiper('swiper'); }
+  get slides() { return new IonicSlides('swiper'); }
   get skipButton() { return IonicButton.withTitle('Skip'); }
   get continueButton() { return IonicButton.withTitle('Continue'); }
 
   async swipeLeft() {
-    return this.swiper.swipeLeft();
+    return this.slides.swipeLeft();
   }
 
   async swipeRight() {
-    return this.swiper.swipeRight();
+    return this.slides.swipeRight();
   }
 
   async skip() {

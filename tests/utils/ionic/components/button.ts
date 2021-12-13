@@ -1,5 +1,5 @@
-import { ElementActionOptions } from "@ionic/e2e";
 import { Ionic$ } from "..";
+import { ElementActionOptions } from "../..";
 import { IonicComponent } from './component';
 
 export interface TapButtonOptions extends ElementActionOptions {

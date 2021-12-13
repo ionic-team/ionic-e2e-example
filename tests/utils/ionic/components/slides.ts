@@ -2,8 +2,8 @@
 import type { RectReturn } from '@wdio/protocols/build/types';
 
 import { IonicComponent } from './component';
-import { Gestures } from "@ionic/e2e";
 import { Ionic$ } from '..';
+import { Gestures } from '../..';
 
 export class IonicSlides extends IonicComponent {
   rects: RectReturn | null = null;

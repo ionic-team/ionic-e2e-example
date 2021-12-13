@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ionic-e2e": "ionic-e2e",
+    "ionic-e2e": "TS_NODE_PROJECT=tsconfig.wdio.json wdio wdio.test.config.ts",
     "postinstall": "webdriver-manager update --standalone false --gecko false"
   },
   "repository": {
@@ -71,6 +71,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
+    "@wdio/appium-service": "^7.16.11",
     "@wdio/cli": "^7.16.11",
     "@wdio/local-runner": "^7.16.11",
     "@wdio/mocha-framework": "^7.16.11",
