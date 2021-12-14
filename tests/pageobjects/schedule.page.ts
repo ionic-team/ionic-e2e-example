@@ -1,4 +1,4 @@
-import { IonicContent, IonicMenu, IonicSegment } from '../utils'
+import { IonicContent, IonicMenu, IonicSegment } from '../helpers'
 import Page from './page';
 
 class Schedule extends Page {

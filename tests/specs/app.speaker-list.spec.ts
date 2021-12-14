@@ -1,4 +1,4 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../utils';
+import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
 
 import SpeakerList from '../pageobjects/speaker-list.page';
 

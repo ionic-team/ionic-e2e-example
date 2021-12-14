@@ -1,4 +1,4 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../utils';
+import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
 
 import Account from '../pageobjects/account.page';
 

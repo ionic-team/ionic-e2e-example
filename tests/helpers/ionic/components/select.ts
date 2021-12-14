@@ -1,4 +1,4 @@
-import { pause, waitForElement } from '../../';
+import { pause, waitForElement } from '../..';
 import { Ionic$ } from "..";
 import { IonicComponent } from "./component";
 

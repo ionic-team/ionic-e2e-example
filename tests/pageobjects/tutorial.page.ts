@@ -1,4 +1,4 @@
-import { IonicButton, IonicSlides } from '../utils';
+import { IonicButton, IonicSlides } from '../helpers';
 import Page from './page';
 
 class Tutorial extends Page {

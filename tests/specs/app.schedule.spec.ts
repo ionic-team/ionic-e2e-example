@@ -1,4 +1,4 @@
-import { Device, pause, setDevice, url, waitForElement, waitForLoad, switchToWeb } from '../utils';
+import { Device, pause, setDevice, url, waitForElement, waitForLoad, switchToWeb } from '../helpers';
 
 import Schedule from '../pageobjects/schedule.page';
 

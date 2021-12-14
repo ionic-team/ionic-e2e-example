@@ -1,4 +1,4 @@
-import { Ionic$, IonicButton } from '../utils';
+import { Ionic$, IonicButton } from '../helpers';
 import Page from './page';
 
 class SessionDetail extends Page {

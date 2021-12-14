@@ -1,4 +1,4 @@
-import { Ionic$, IonicButton, IonicSelect } from '../utils'
+import { Ionic$, IonicButton, IonicSelect } from '../helpers'
 
 import Page from './page';
 

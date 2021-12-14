@@ -1,4 +1,4 @@
-import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../utils';
+import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../helpers';
 
 import About from '../pageobjects/about.page';
 
