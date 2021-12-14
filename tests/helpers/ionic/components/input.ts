@@ -7,8 +7,8 @@ export class IonicInput extends IonicComponent {
     super(selector);
   }
 
-  async setValue(selector: string, value: string, { visibilityTimeout = 5000 }: ElementActionOptions = {}) {
-    const el = await Ionic$.$(selector);
+  async setValue(value: string, { visibilityTimeout = 5000 }: ElementActionOptions = {}) {
+    const el = await Ionic$.$(this.selector);
     await el.waitForDisplayed({ timeout: visibilityTimeout });
     console.log('Got input element', el);
 
@@ -23,8 +23,8 @@ export class IonicInput extends IonicComponent {
     }
   }
 
-  async getValue(selector: string, value: string, { visibilityTimeout = 5000 }: ElementActionOptions = {}) {
-    const el = await Ionic$.$(selector);
+  async getValue({ visibilityTimeout = 5000 }: ElementActionOptions = {}) {
+    const el = await Ionic$.$(this.selector);
     await el.waitForDisplayed({ timeout: visibilityTimeout });
     console.log('Got input element', el);
 

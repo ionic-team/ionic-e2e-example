@@ -126,6 +126,57 @@ await Ionic$.$("#one-element");
 await Ionic$.$$(".multiple-elements");
 ```
 
+## Everything is Async
+
+One thing to note about the test API: everything is async. Because WebdriverIO is sending commands to a server that is controlling your app, everything is done asynchronously. Thus, always `await` any time you query for an element or perform any action. Forgetting to wait for a promise to resolve is a common mistake to make when writing tests!
+
 ### Ionic Component Helpers
 
-## Everything is Async
+In [helpers/ionic/components](https://github.com/ionic-team/ionic-e2e-example/tree/main/tests/helpers/ionic/components) there are a number of classes that make interacting with Ionic components easier. Here are some particularly useful ones:
+
+- IonicButton
+- IonicInput
+- IonicMenu
+- IonicPage
+- IonicSegment
+- IonicSelect
+- IonicSlides
+
+Here are some examples of using these helpers:
+
+```typescript
+import { IonicButton, IonicInput, IonicMenu, IonicPage, IonicSegment, IonicSelect, IonicSlides } from '../helpers';
+
+// Button
+const button = IonicButton.withTitle("Sign up");
+await button.tap();
+
+// Input
+const username = new IonicInput("#username");
+await username.setValue("ionitron");
+const value = await username.getValue();
+
+// Menu
+const menu = new IonicMenu(); // Will find the first menu if no selector provided
+await menu.open();
+
+// Page
+const activePage = await IonicPage.active();
+
+// Segment
+const segment = new IonicSegment('#my-segment');
+const favoritesButton = await segment.button('Favorites');
+await favoritesButton.tap();
+
+// Select
+const select = new IonicSelect('#my-select');
+await select.open();
+await select.select(0);
+await select.ok();
+// await select.cancel()
+
+// Slides
+await slides = new IonicSlides('#my-slides');
+await slides.swipeLeft();
+await slides.swipeRight();
+```
