@@ -11,7 +11,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ionic-e2e": "TS_NODE_PROJECT=tsconfig.wdio.json wdio wdio.test.config.ts",
+    "ionic-e2e:build": "bash scripts/build.sh",
+    "ionic-e2e:run": "TS_NODE_PROJECT=tsconfig.wdio.json wdio wdio.test.config.ts",
     "postinstall": "webdriver-manager update --standalone false --gecko false"
   },
   "repository": {

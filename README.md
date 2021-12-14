@@ -4,13 +4,23 @@ This example app demonstrates how to build web and native end-to-end (E2E) tests
 
 Additionally, this example comes with some helpers that make it easier to write tests against Ionic or hybrid apps in general.
 
+Note: this example app uses Cordova as it's based on the older Ionic Conference App, but we strongly recommend teams use [Capacitor](https://capacitorjs.com/) and the same information below will apply.
+
 ## About the Testing Stack
 
-We've chosen WebdriverIO as the primary test runner and API for test authoring. WebdriverIO is the leading Node.js-based test automation framework and supports a wide variety of tools that support the WebDriver protocol.
+We've chosen [WebdriverIO](https://webdriver.io) as the primary test runner and API for test authoring. WebdriverIO is the leading Node.js-based test automation framework and supports a wide variety of tools that support the WebDriver protocol.
 
-WebdriverIO orchestrates tools like Appium and Chromedriver to actually run tests on target devices or a web browser.
+WebdriverIO orchestrates tools like [Appium](https://appium.io) and Chromedriver to actually run tests on target devices or a web browser.
 
 One of the benefits of this stack compared to popular tools like [Cypress.io](https://cypress.io) is that it can test your actual native app, the same app that you'll ship to end users, but with a similar test authoring API.
+
+## Running Tests
+
+Before running tests, native binaries for iOS (if on Mac) and Android need to be built. Run:
+
+`npm run ionic-e2e:build`
+
+Then, to run tests, run `npm run ionic-e2e:run`
 
 ## Exploring the Tests
 
