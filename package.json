@@ -12,7 +12,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ionic-e2e:build": "bash scripts/build.sh",
-    "ionic-e2e:run": "TS_NODE_PROJECT=tsconfig.wdio.json wdio wdio.test.config.ts",
+    "ionic-e2e:develop": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.web.config.ts --watch",
+    "ionic-e2e:run:web": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.web.config.ts",
+    "ionic-e2e:run:ios": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.ios.config.ts",
+    "ionic-e2e:run:android": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.android.config.ts",
     "postinstall": "webdriver-manager update --standalone false --gecko false"
   },
   "repository": {

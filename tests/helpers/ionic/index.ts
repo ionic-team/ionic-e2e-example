@@ -7,7 +7,7 @@ export class Ionic$ {
     return activePage.$(selector);
   }
 
-  static async $($selector: string) {
+  static async $$(selector: string) {
     const activePage = await IonicPage.active();
     return activePage.$$(selector);
   }

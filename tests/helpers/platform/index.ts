@@ -98,7 +98,6 @@ export function isAndroid() {
 }
 
 export function isWeb() {
-  console.log('IS MOBILE?', driver.isMobile);
   return !driver.isMobile;
 }
 

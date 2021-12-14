@@ -1,4 +1,4 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
+import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
 
 import Login from '../pageobjects/login.page';
 
@@ -10,16 +10,11 @@ describe('login', () => {
   beforeEach(async () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
+    await url('/login');
+    await pause(500);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await Login.username.setValue('testuser');
-    await Login.submit();
-
-    await expect(Login.error).toHaveText('Incorrect password');
+  it('Should login', async () => {
+    await Login.login('test', 'test');
   });
-  */
 });

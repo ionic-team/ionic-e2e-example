@@ -15,15 +15,13 @@ describe('tutorial', () => {
   });
 
   it('Should load swiper', async () => {
-    console.log('SWIPER DISPLAY TEST');
-    await expect(await Tutorial.swiper.$).toBeDisplayed();
+    await expect(await Tutorial.slides.$).toBeDisplayed();
   });
 
   it('Should get to schedule', async () => {
-    console.log('SWIPER SCHEDULE TEST');
-    await Tutorial.swiper.swipeLeft();
-    await Tutorial.swiper.swipeLeft();
-    await Tutorial.swiper.swipeLeft();
+    await Tutorial.slides.swipeLeft();
+    await Tutorial.slides.swipeLeft();
+    await Tutorial.slides.swipeLeft();
 
     await Tutorial.continue();
 
@@ -33,7 +31,6 @@ describe('tutorial', () => {
   });
 
   it('Should skip to schedule', async () => {
-    console.log('SWIPER SKIP TEST');
     await Tutorial.skip();
 
     await pause(1000);
