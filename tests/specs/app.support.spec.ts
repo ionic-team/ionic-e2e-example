@@ -11,15 +11,14 @@ describe('support', () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
     await url('/support');
-    await pause(2000);
+    await pause(500);
   });
 
   it('Should submit support request', async () => {
-    pause(1000);
-    const input = await Support.messageInput;
+    await pause(5000);
+    const input = Support.messageInput;
     await input.setValue('I am very happy with the app');
     await Support.submitMessage();
-    pause(10000);
 
     const toast = await Support.toast;
     await expect(await toast.getText()).toBe('Your support request has been sent.');

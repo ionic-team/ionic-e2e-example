@@ -1,8 +1,8 @@
-import { IonicButton, IonicInput, IonicToast } from '../helpers';
+import { IonicButton, IonicInput, IonicTextarea, IonicToast } from '../helpers';
 import Page from './page';
 
 class Support extends Page {
-  get messageInput() { return new IonicInput('ion-textarea') }
+  get messageInput() { return new IonicTextarea('ion-textarea[name="supportQuestion"]') }
   get submitButton() { return IonicButton.withTitle('Submit') }
   get toast() { return new IonicToast() }
 

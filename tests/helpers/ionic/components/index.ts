@@ -7,4 +7,5 @@ export * from './page';
 export * from './segment';
 export * from './select';
 export * from './slides';
+export * from './textarea';
 export * from './toast';
