@@ -1,6 +1,8 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
+import { SchedulePage } from '../../src/app/pages/schedule/schedule';
+import { Device, Ionic$, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
 
 import ScheduleFilter from '../pageobjects/schedule-filter.page';
+import schedulePage from '../pageobjects/schedule.page';
 
 describe('schedule filter', () => {
   before(async () => {
@@ -10,16 +12,14 @@ describe('schedule filter', () => {
   beforeEach(async () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
+    await url('/app/tabs/schedule');
+    await pause(200);
+    await schedulePage.filterButton.tap();
+    await pause(400);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await ScheduleFilter.username.setValue('testuser');
-    await ScheduleFilter.submit();
-
-    await expect(ScheduleFilter.error).toHaveText('Incorrect password');
+  it('Should load filters', async () => {
+    const items = await $$('page-schedule-filter ion-item');
+    expect(items.length).toBe(10);
   });
-  */
 });
