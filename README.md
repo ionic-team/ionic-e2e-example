@@ -156,27 +156,39 @@ One thing to note about the test API: everything is async. Because WebdriverIO i
 
 In [helpers/ionic/components](https://github.com/ionic-team/ionic-e2e-example/tree/main/tests/helpers/ionic/components) there are a number of classes that make interacting with Ionic components easier. Here are some particularly useful ones:
 
+- IonicAlert
 - IonicButton
 - IonicInput
+- IonicTextarea
 - IonicMenu
 - IonicPage
 - IonicSegment
 - IonicSelect
 - IonicSlides
+- IonicToast
 
 Here are some examples of using these helpers:
 
 ```typescript
-import { IonicButton, IonicInput, IonicMenu, IonicPage, IonicSegment, IonicSelect, IonicSlides } from '../helpers';
+import { IonicAlert, IonicButton, IonicInput, IonicMenu, IonicPage, IonicSegment, IonicSelect, IonicSlides, IonicTextarea } from '../helpers';
+
+// Alert
+const alert = new IonicAlert();
+const input = await alert.input;
+input.setValue('My Response');
+const okButton = alert.button('Ok');
+await okButton.click();
 
 // Button
 const button = IonicButton.withTitle("Sign up");
 await button.tap();
 
-// Input
+// Input and Textarea
 const username = new IonicInput("#username");
 await username.setValue("ionitron");
 const value = await username.getValue();
+const message = new IonicTextarea("#message");
+await message.setValue("This is a long message");
 
 // Menu
 const menu = new IonicMenu(); // Will find the first menu if no selector provided
@@ -201,4 +213,8 @@ await select.ok();
 await slides = new IonicSlides('#my-slides');
 await slides.swipeLeft();
 await slides.swipeRight();
+
+// Toast
+const toast = new IonicToast();
+const currentToastText = await toast.getText();
 ```

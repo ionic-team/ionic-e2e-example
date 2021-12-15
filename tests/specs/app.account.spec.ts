@@ -22,7 +22,7 @@ describe('account', () => {
     await Account.changeUsernameButton.tap();
     await pause(500);
     const input = await Account.changeUsernameAlert.input;
-    input.setValue('newusername');
+    await input.setValue('newusername');
     const okButton = await Account.changeUsernameAlert.button('Ok');
     await okButton.click();
     await url('/login');
