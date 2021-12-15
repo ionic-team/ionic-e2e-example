@@ -1,4 +1,4 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
+import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
 
 import SpeakerDetail from '../pageobjects/speaker-detail.page';
 
@@ -10,16 +10,12 @@ describe('speaker detail', () => {
   beforeEach(async () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
+    await url('/app/tabs/speakers/speaker-details/3');
+    await pause(500);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await SpeakerDetail.username.setValue('testuser');
-    await SpeakerDetail.submit();
-
-    await expect(SpeakerDetail.error).toHaveText('Incorrect password');
+  it('Should load speaker', async () => {
+    const speakerName = await SpeakerDetail.speakerName;
+    await expect(await speakerName.getText()).toBe('Donald Duck');
   });
-  */
 });

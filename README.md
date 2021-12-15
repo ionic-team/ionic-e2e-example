@@ -14,7 +14,19 @@ WebdriverIO orchestrates tools like [Appium](https://appium.io) and Chromedriver
 
 One of the benefits of this stack compared to popular tools like [Cypress.io](https://cypress.io) is that it can test your actual native app, the same app that you'll ship to end users, but with a similar test authoring API.
 
+## Developing Tests
+
+One of the benefits to Web Native development is the ability to build most of your app in a browser. End-to-end testing should be no different. To facilitate this, we've provided a develop mode that connects to a running `ionic serve` or other dev server:
+
+`SERVE_PORT=8100 npm run ionic-e2e:develop`
+
+Where `SERVE_PORT` is the port your local dev server is running. The default is `8100`
+
+This will start a web-based test development server in Chrome and watch for changes to your tests so you can rapidly develop them.
+
 ## Running Tests
+
+To run your tests on actual native devices and emulators/simulators, use the following commands:
 
 Before running tests, native binaries for iOS (if on Mac) and Android need to be built. Run:
 

@@ -14,7 +14,7 @@ export const config = {
       baseUrl: './',
     },
   },
-  baseUrl: "http://localhost:8101",
+  baseUrl: process.env.SERVE_PORT ? `http://localhost:${process.env.SERVE_PORT}` : "http://localhost:8100",
   //
   // ====================
   // Runner Configuration
@@ -36,7 +36,7 @@ export const config = {
    * NOTE: This is just a place holder and will be overwritten by each specific configuration
    */
   // specs: [['./tests/specs/**/*.spec.ts']],
-  specs: [['./tests/specs/app.account.spec.ts']],
+  specs: [['./tests/specs/app.speaker-detail.spec.ts']],
   //
   // ============
   // Capabilities

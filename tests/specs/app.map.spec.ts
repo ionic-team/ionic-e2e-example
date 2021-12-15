@@ -1,4 +1,4 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
+import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
 
 import Map from '../pageobjects/map.page';
 
@@ -10,16 +10,11 @@ describe('map', () => {
   beforeEach(async () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
+    await url('/app/tabs/map');
+    await pause(500);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await Map.username.setValue('testuser');
-    await Map.submit();
-
-    await expect(Map.error).toHaveText('Incorrect password');
+  it('Should load map', async () => {
+    await expect(Map.map).toBeDisplayed();
   });
-  */
 });

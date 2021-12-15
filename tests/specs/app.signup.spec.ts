@@ -1,8 +1,8 @@
-import { Device, setDevice, switchToWeb, waitForLoad } from '../helpers';
+import { Device, getUrl, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
 
 import Signup from '../pageobjects/signup.page';
 
-describe('signup', () => {
+describe('login', () => {
   before(async () => {
     await waitForLoad();
   });
@@ -10,16 +10,13 @@ describe('signup', () => {
   beforeEach(async () => {
     await setDevice(Device.Mobile);
     await switchToWeb();
+    await url('/signup');
+    await pause(500);
   });
 
-  /*
-  Test specs here:
-
-  it('Should perform action', async () => {
-    await Signup.username.setValue('testuser');
-    await Signup.submit();
-
-    await expect(Signup.error).toHaveText('Incorrect password');
+  it('Should signup', async () => {
+    await Signup.signup('test', 'test');
+    await pause(500);
+    await expect((await getUrl()).pathname).toBe('/app/tabs/schedule');
   });
-  */
 });
