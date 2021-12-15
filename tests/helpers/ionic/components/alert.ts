@@ -9,7 +9,12 @@ export class IonicAlert extends IonicComponent {
     super(selector ?? 'ion-alert');
   }
 
+  get input() {
+    return $(this.selector).$(`.alert-input`);
+  }
+
   async button(buttonTitle: string) {
     return $(this.selector).$(`button=${buttonTitle}`);
   }
+
 }

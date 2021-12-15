@@ -21,11 +21,14 @@ describe('account', () => {
   it('Should open change username alert', async () => {
     await Account.changeUsernameButton.tap();
     await pause(500);
-    /*
-    const cancelButton = await Account.changeUsernameAlert.button('Cancel');
-    await cancelButton.click();
-    */
+    const input = await Account.changeUsernameAlert.input;
+    input.setValue('newusername');
     const okButton = await Account.changeUsernameAlert.button('Ok');
     await okButton.click();
+    await url('/login');
+    await pause(500);
+    await url('/account');
+    const usernameLabel = await Account.usernameLabel;
+    expect(await usernameLabel.getText()).toBe('newusername');
   });
 });
