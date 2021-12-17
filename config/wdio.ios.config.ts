@@ -195,11 +195,12 @@ export const config = {
       // This is `appium:` for all Appium Capabilities which can be found here
       // http://appium.io/docs/en/writing-running-appium/caps/
       'appium:deviceName': 'iPhone 13 Pro Max',
-      'appium:platformVersion': '15.0',
+      'appium:platformVersion': '15.2',
       'appium:orientation': 'PORTRAIT',
       'appium:automationName': 'XCUITest',
       // The path to the app
-      'appium:app': 'platforms/ios/build/app-debug.ipa',
+      // 'appium:app': 'platforms/ios/build/app-debug.ipa',
+      'appium:app': './.ionic/App-ios-simulator.zip',
       // Read the reset strategies very well, they differ per platform, see
       // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
       'appium:newCommandTimeout': 240,

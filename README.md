@@ -24,15 +24,31 @@ Where `SERVE_PORT` is the port your local dev server is running. The default is 
 
 This will start a web-based test development server in Chrome and watch for changes to your tests so you can rapidly develop them.
 
+## Building App Binaries
+
+Before running tests, native binaries for iOS (if on Mac) and Android need to be built.
+
+When building for Android, the following environment variables must be set:
+
+`ANDROID_SDK_ROOT`, `JAVA_HOME`, and Gradle must be on your path for this sample (i.e. `export PATH=$PATH:/path/to/gradle-x.x.x/bin`)
+
+To build for iOS:
+
+`npm run ionic-e2e:build-ios`
+
 ## Running Tests
 
-To run your tests on actual native devices and emulators/simulators, use the following commands:
+To run your tests on actual native devices and emulators/simulators, use the following commands depending on the platform you'd like to run on:
 
-Before running tests, native binaries for iOS (if on Mac) and Android need to be built. Run:
+```typescript
+npm run ionic-e2e:run:ios
+npm run ionic-e2e:run:android
+npm run ionic-e2e:run:web
+```
 
-`npm run ionic-e2e:build`
+## Configuring WebdriverIO and Appium
 
-Then, to run tests, run `npm run ionic-e2e:run`
+Edit `config/wdio.[platform].config.ts` based on the target platform to configure the settings and capabilities for the test.
 
 ## Exploring the Tests
 

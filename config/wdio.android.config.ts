@@ -168,40 +168,24 @@ export const config = {
     ],
   ],
   // From wdio.shared.local.appium.conf.ts
-  capabilities: [
-    /*
-  {
-    browserName: 'chrome',
-    'wdio:devtoolsOptions': {
-      headless: true,
-    },
-    'goog:chromeOptions': {
-      prefs: {
-        // 'hardware.video_capture_enabled': 1,
-        // 'hardware.video_capture_allowed_urls': 'http://localhost:3000',
-        // 'hardware.audio_capture_allowed_urls': 'http://localhost:3000',
-        'profile.default_content_setting_values.media_stream_camera': 1,
-        'profile.default_content_setting_values.media_stream_mic': 1,
-        'profile.default_content_setting_values.notifications': 1,
-      },
-    },
-  }, 
-  */
-    {
-      platformName: 'iOS',
-      maxInstances: 1,
-      'appium:isHeadless': false,
-      // For W3C the appium capabilities need to have an extension prefix
-      // This is `appium:` for all Appium Capabilities which can be found here
-      // http://appium.io/docs/en/writing-running-appium/caps/
-      'appium:deviceName': 'iPhone 13 Pro Max',
-      'appium:platformVersion': '15.0',
-      'appium:orientation': 'PORTRAIT',
-      'appium:automationName': 'XCUITest',
-      // The path to the app
-      'appium:app': 'platforms/ios/build/app-debug.ipa',
-      // Read the reset strategies very well, they differ per platform, see
-      // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
-      'appium:newCommandTimeout': 240,
-    }]
+  capabilities: [{
+    // The defaults you need to have in your config
+    platformName: 'Android',
+    maxInstances: 1,
+    'appium:isHeadless': false,
+    // For W3C the appium capabilities need to have an extension prefix
+    // http://appium.io/docs/en/writing-running-appium/caps/
+    // This is `appium:` for all Appium Capabilities which can be found here
+    // 'appium:deviceName': 'Pixel_3_10.0',
+    'appium:deviceName': 'Pixel 2 API 28',
+    'appium:platformVersion': '9',
+    'appium:orientation': 'PORTRAIT',
+    'appium:automationName': 'UiAutomator2',
+    // The path to the app
+    'appium:app': 'platforms/android/app/build/outputs/apk/debug/app-debug.apk',
+    'appium:appWaitActivity': 'com.ionicframework.conferenceapp.MainActivity',
+    // Read the reset strategies very well, they differ per platform, see
+    // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
+    'appium:newCommandTimeout': 240,
+  }]
 };

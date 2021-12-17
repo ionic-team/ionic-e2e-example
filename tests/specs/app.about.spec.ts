@@ -24,6 +24,7 @@ describe('about', () => {
     await pause(500);
     await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(1);
 
+
     await location.open();
     await location.select(2);
     await location.ok();
