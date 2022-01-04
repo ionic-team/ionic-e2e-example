@@ -35,7 +35,7 @@ export const config = {
   /**
    * NOTE: This is just a place holder and will be overwritten by each specific configuration
    */
-  specs: [['./tests/specs/app.about.spec.ts']],
+  specs: [['./tests/**/*.ts']],
   filesToWatch: ['./tests/**/*.ts'],
   //
   // ============

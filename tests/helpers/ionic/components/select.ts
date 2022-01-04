@@ -10,11 +10,11 @@ export class IonicSelect extends IonicComponent {
   async open() {
     (await this.$).click();
     // Wait for the alert to popup
-    await pause(500);
+    await pause(1000);
   }
 
   async select(n: number) {
-    const options = await Ionic$.$$('.select-interface-option');
+    const options = await $$('.select-interface-option');
 
     return options[n]?.click();
   }

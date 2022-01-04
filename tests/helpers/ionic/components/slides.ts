@@ -3,7 +3,7 @@ import type { RectReturn } from '@wdio/protocols/build/types';
 
 import { IonicComponent } from './component';
 import { Ionic$ } from '..';
-import { Gestures } from '../..';
+import { Gestures, waitForElement } from '../..';
 
 export class IonicSlides extends IonicComponent {
   rects: RectReturn | null = null;
@@ -58,10 +58,11 @@ export class IonicSlides extends IonicComponent {
    * Get the Swiper position and size
    */
   async getSwiperRectangles(): Promise<RectReturn> {
+    const slides2 = await Ionic$.$(this.selector);
     // Get the rectangles of the Swiper and store it in a global that will be used for a next call.
     // We dont want ask for the rectangles of the Swiper if we already know them.
     // This will save unneeded webdriver calls.
-    this.rects = this.rects || await driver.getElementRect(await Ionic$.$(this.selector).elementId);
+    this.rects = this.rects || await driver.getElementRect(slides2.elementId);
 
     return this.rects;
   }
