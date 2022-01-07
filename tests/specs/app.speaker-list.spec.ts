@@ -2,7 +2,7 @@ import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../help
 
 import SpeakerList from '../pageobjects/speaker-list.page';
 
-describe('speaker list', () => {
+describe('Speaker List', () => {
   before(async () => {
     await waitForLoad();
   });

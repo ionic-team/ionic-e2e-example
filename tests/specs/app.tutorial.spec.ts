@@ -2,7 +2,7 @@ import { clearIndexedDB, pause, getUrl, url, setDevice, switchToWeb, Device, wai
 
 import Tutorial from '../pageobjects/tutorial.page';
 
-describe('tutorial', () => {
+describe('Tutorial', () => {
   before(async () => {
     await waitForLoad();
   });

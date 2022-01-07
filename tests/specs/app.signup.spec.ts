@@ -2,7 +2,7 @@ import { Device, getUrl, pause, setDevice, switchToWeb, url, waitForLoad } from 
 
 import Signup from '../pageobjects/signup.page';
 
-describe('login', () => {
+describe('Signup', () => {
   before(async () => {
     await waitForLoad();
   });

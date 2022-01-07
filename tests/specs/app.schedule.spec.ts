@@ -2,7 +2,7 @@ import { Device, pause, setDevice, url, waitForElement, waitForLoad, switchToWeb
 
 import Schedule from '../pageobjects/schedule.page';
 
-describe('schedule', () => {
+describe('Schedule', () => {
   before(async () => {
     await waitForLoad();
   });

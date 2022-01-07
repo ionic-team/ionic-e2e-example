@@ -2,7 +2,7 @@ import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../help
 
 import Map from '../pageobjects/map.page';
 
-describe('map', () => {
+describe('Map', () => {
   before(async () => {
     await waitForLoad();
   });

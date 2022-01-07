@@ -2,7 +2,7 @@ import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../help
 
 import About from '../pageobjects/about.page';
 
-describe('about', () => {
+describe('About', () => {
   before(async () => {
     await waitForLoad();
   });

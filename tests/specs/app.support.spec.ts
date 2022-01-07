@@ -2,7 +2,7 @@ import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../help
 
 import Support from '../pageobjects/support.page';
 
-describe('support', () => {
+describe('Support', () => {
   before(async () => {
     await waitForLoad();
   });

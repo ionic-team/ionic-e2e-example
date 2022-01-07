@@ -3,7 +3,7 @@ import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../help
 import Schedule from '../pageobjects/schedule.page';
 import SessionDetail from '../pageobjects/session-detail.page';
 
-describe('session detail', () => {
+describe('Session Detail', () => {
   before(async () => {
     await waitForLoad();
   });

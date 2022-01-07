@@ -4,7 +4,7 @@ import { Device, Ionic$, pause, setDevice, switchToWeb, url, waitForLoad } from 
 import ScheduleFilter from '../pageobjects/schedule-filter.page';
 import schedulePage from '../pageobjects/schedule.page';
 
-describe('schedule filter', () => {
+describe('Schedule Filter', () => {
   before(async () => {
     await waitForLoad();
   });

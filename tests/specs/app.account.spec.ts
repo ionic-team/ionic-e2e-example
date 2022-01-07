@@ -3,7 +3,7 @@ import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../help
 import Account from '../pageobjects/account.page';
 import Login from '../pageobjects/login.page';
 
-describe('account', () => {
+describe('Account', () => {
   before(async () => {
     await waitForLoad();
     await url('/login');
