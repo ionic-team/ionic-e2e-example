@@ -1,15 +1,15 @@
-import { IonicButton, IonicSlides } from "../helpers";
-import Page from "./page";
+import { IonicButton, IonicSlides } from '../helpers';
+import Page from './page';
 
 class Tutorial extends Page {
   get slides() {
-    return new IonicSlides("swiper");
+    return new IonicSlides('swiper');
   }
   get skipButton() {
-    return IonicButton.withTitle("Skip");
+    return IonicButton.withTitle('Skip');
   }
   get continueButton() {
-    return IonicButton.withTitle("Continue");
+    return IonicButton.withTitle('Continue');
   }
 
   async swipeLeft() {
