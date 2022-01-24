@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cordova build android
+ionic cordova build android
 # cp platforms/android/app/build/outputs/apk/debug/app-debug.apk
 
 

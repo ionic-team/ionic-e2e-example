@@ -1,10 +1,16 @@
-import { IonicButton, IonicInput } from '../helpers';
-import Page from './page';
+import { IonicButton, IonicInput } from "../helpers";
+import Page from "./page";
 
 class Signup extends Page {
-  get username() { return new IonicInput('[name="username"]') }
-  get password() { return new IonicInput('[name="password"]') }
-  get signupButton() { return IonicButton.withTitle('Create') }
+  get username() {
+    return new IonicInput('ion-input [name="username"]');
+  }
+  get password() {
+    return new IonicInput('ion-input [name="password"]');
+  }
+  get signupButton() {
+    return IonicButton.withTitle("Create");
+  }
 
   async signup(username: string, password: string) {
     await this.username.setValue(username);

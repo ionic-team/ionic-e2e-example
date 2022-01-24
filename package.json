@@ -16,8 +16,7 @@
     "ionic-e2e:develop": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.web.config.ts --watch",
     "ionic-e2e:run:web": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.web.config.ts",
     "ionic-e2e:run:ios": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.ios.config.ts",
-    "ionic-e2e:run:android": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.android.config.ts",
-    "postinstall": "webdriver-manager update --standalone false --gecko false"
+    "ionic-e2e:run:android": "TS_NODE_PROJECT=tsconfig.wdio.json wdio config/wdio.android.config.ts"
   },
   "repository": {
     "type": "git",
@@ -49,9 +48,6 @@
     "sw-toolbox": "3.6.0",
     "swiper": "^7.2.0",
     "tslib": "^2.0.0",
-    "wdio-html-nice-reporter": "^7.8.7",
-    "wdio-json-reporter": "^3.0.0",
-    "webdriver-manager": "^12.1.8",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -68,7 +64,7 @@
     "@angular/compiler": "^13.0.0",
     "@angular/compiler-cli": "^13.0.0",
     "@angular/language-service": "^13.0.0",
-    "@ionic/angular-toolkit": "^2.1.2",
+    "@ionic/angular-toolkit": "^5.0.3",
     "@ionic/lab": "^2.0.19",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "2.0.8",
@@ -94,9 +90,9 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
     "puppeteer": "^11.0.0",
     "ts-node": "^10.4.0",
+    "tsconfig-paths": "^3.12.0",
     "tslint": "~6.1.0",
     "typescript": "~4.4.4",
     "wdio-chromedriver-service": "^7.2.2",

@@ -16,13 +16,16 @@ One of the benefits of this stack compared to popular tools like [Cypress.io](ht
 
 ## Developing Tests
 
-One of the benefits to Web Native development is the ability to build most of your app in a browser. End-to-end testing should be no different. To facilitate this, we've provided a develop mode that connects to a running `ionic serve` or other dev server:
+One of the benefits to Web Native development is the ability to build most of your app in a browser. End-to-end testing should be no different. To facilitate this, we've provided a develop mode that connects to a running `ionic serve` (`npx ionic serve` ) or other dev server:
 
-`SERVE_PORT=8100 npm run ionic-e2e:develop`
+`SERVE_PORT=8101 npm run ionic-e2e:develop`
 
-Where `SERVE_PORT` is the port your local dev server is running. The default is `8100`
+Where `SERVE_PORT` is the port your local dev server is running.
 
 This will start a web-based test development server in Chrome and watch for changes to your tests so you can rapidly develop them.
+
+> **NOTE:**
+> The default port is `8100`, but when running Appium tests the default port will conflict with the WDA-agent.
 
 ## Building App Binaries
 
@@ -34,7 +37,7 @@ When building for Android, the following environment variables must be set:
 
 To build for iOS:
 
-`npm run ionic-e2e:build-ios`
+`npm run ionic-e2e:build:ios`
 
 ## Running Tests
 
