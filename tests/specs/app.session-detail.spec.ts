@@ -1,4 +1,11 @@
-import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  url,
+  waitForLoad,
+  switchToWeb,
+} from '../helpers';
 
 import Schedule from '../pageobjects/schedule.page';
 import SessionDetail from '../pageobjects/session-detail.page';
@@ -27,8 +34,12 @@ describe('Session Detail', () => {
     await backButton.tap();
 
     const favoritesButton = await Schedule.segment.button('Favorites');
-    await (await favoritesButton.$).waitForDisplayed();
-    await favoritesButton.tap();
+    if (favoritesButton) {
+      await (await favoritesButton.$).waitForDisplayed();
+      await favoritesButton.tap();
+    } else {
+      throw new Error('Favorites button not found');
+    }
     const item = await (await Schedule.content.$).$('ion-item');
     const h3 = await item.$('h3');
     await expect(h3).toHaveText('Breakfast');

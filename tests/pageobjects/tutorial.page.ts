@@ -2,20 +2,26 @@ import { IonicButton, IonicSlides } from '../helpers';
 import Page from './page';
 
 class Tutorial extends Page {
-  get slides() { return new IonicSlides('swiper'); }
-  get skipButton() { return IonicButton.withTitle('Skip'); }
-  get continueButton() { return IonicButton.withTitle('Continue'); }
+  get slides() {
+    return new IonicSlides('swiper');
+  }
+  get skipButton() {
+    return IonicButton.withTitle('Skip');
+  }
+  get continueButton() {
+    return IonicButton.withTitle('Continue');
+  }
 
   async swipeLeft() {
-    return this.slides.swipeLeft();
+    await this.slides.swipeLeft();
   }
 
   async swipeRight() {
-    return this.slides.swipeRight();
+    await this.slides.swipeRight();
   }
 
   async skip() {
-    return this.skipButton.tap();
+    await this.skipButton.tap();
   }
 
   async continue() {

@@ -1,4 +1,11 @@
-import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  switchToWeb,
+  url,
+  waitForLoad,
+} from '../helpers';
 
 import Account from '../pageobjects/account.page';
 import Login from '../pageobjects/login.page';
@@ -6,6 +13,7 @@ import Login from '../pageobjects/login.page';
 describe('Account', () => {
   before(async () => {
     await waitForLoad();
+    await switchToWeb();
     await url('/login');
     await pause(500);
     await Login.login('test', 'test');

@@ -1,4 +1,12 @@
-import { Device, getUrl, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import {
+  Device,
+  getUrl,
+  pause,
+  setDevice,
+  switchToWeb,
+  url,
+  waitForLoad,
+} from '../helpers';
 
 import Signup from '../pageobjects/signup.page';
 

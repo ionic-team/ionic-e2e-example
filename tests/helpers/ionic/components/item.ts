@@ -1,5 +1,5 @@
-import { TapButtonOptions } from ".";
-import { Ionic$ } from "..";
+import { TapButtonOptions } from '.';
+import { Ionic$ } from '..';
 import { IonicComponent } from './component';
 
 export class IonicItem extends IonicComponent {
@@ -11,8 +11,11 @@ export class IonicItem extends IonicComponent {
     return new IonicItem(`ion-item=${buttonTitle}`);
   }
 
-  async tap({ visibilityTimeout = 5000, scroll = true }: TapButtonOptions = {}) {
-    const button = await Ionic$.$(this.selector);
+  async tap({
+    visibilityTimeout = 5000,
+    scroll = true,
+  }: TapButtonOptions = {}) {
+    const button = await Ionic$.$(this.selector as string);
     await button.waitForDisplayed({ timeout: visibilityTimeout });
     if (scroll) {
       await button.scrollIntoView();

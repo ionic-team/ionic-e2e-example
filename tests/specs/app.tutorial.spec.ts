@@ -1,4 +1,13 @@
-import { clearIndexedDB, pause, getUrl, url, setDevice, switchToWeb, Device, waitForLoad } from '../helpers';
+import {
+  clearIndexedDB,
+  pause,
+  getUrl,
+  url,
+  setDevice,
+  switchToWeb,
+  Device,
+  waitForLoad,
+} from '../helpers';
 
 import Tutorial from '../pageobjects/tutorial.page';
 

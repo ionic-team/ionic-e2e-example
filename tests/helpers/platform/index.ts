@@ -4,35 +4,35 @@ export * from './android';
 export * from './ios';
 
 export enum Device {
-  Mobile = 'mobile'
+  Mobile = 'mobile',
 }
 
-export function waitForLoad() {
+export async function waitForLoad() {
   if (isWeb()) {
     return;
   }
-  return WebView.waitForWebsiteLoaded();
+  await WebView.waitForWebsiteLoaded();
 }
 
-export function switchToNative() {
-  if (isWeb()) {
-    return;
-  }
-
-  return WebView.switchToContext(CONTEXT_REF.NATIVE);
-}
-
-export function switchToWeb() {
+export async function switchToNative() {
   if (isWeb()) {
     return;
   }
 
-  return WebView.switchToContext(CONTEXT_REF.WEBVIEW);
+  await WebView.switchToContext(CONTEXT_REF.NATIVE);
+}
+
+export async function switchToWeb() {
+  if (isWeb()) {
+    return;
+  }
+
+  await WebView.switchToContext(CONTEXT_REF.WEBVIEW);
 }
 
 export function getContexts() {
   if (isWeb()) {
-    return ["WEBVIEW"];
+    return ['WEBVIEW'];
   }
 
   return driver.getContexts();
@@ -40,28 +40,27 @@ export function getContexts() {
 
 export function getContext() {
   if (isWeb()) {
-    return "WEBVIEW";
+    return 'WEBVIEW';
   }
 
   return driver.getContext();
 }
 
-export async function url(url: string) {
+export async function url(newUrl: string) {
   const currentUrl = await browser.getUrl();
 
   console.log('Current url', currentUrl);
 
-  if (url[0] === '/') {
+  if (newUrl[0] === '/') {
     // Simulate baseUrl by grabbing the current url and navigating relative
     // to that
     try {
-      const fullUrl = new URL(url, currentUrl);
+      const fullUrl = new URL(newUrl, currentUrl);
       return browser.url(fullUrl.href);
-    } catch (e) {
-    }
+    } catch (e) {}
   }
 
-  return browser.url(url);
+  return browser.url(newUrl);
 }
 
 export function pause(ms: number) {
@@ -119,5 +118,9 @@ export async function setLocation(lat: number, lng: number) {
     return;
   }
 
-  return driver.setGeoLocation({ latitude: '' + lat, longitude: '' + lat, altitude: "94.23" });
+  return driver.setGeoLocation({
+    latitude: '' + lat,
+    longitude: '' + lat,
+    altitude: '94.23',
+  });
 }

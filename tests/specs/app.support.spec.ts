@@ -1,4 +1,11 @@
-import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  switchToWeb,
+  url,
+  waitForLoad,
+} from '../helpers';
 
 import Support from '../pageobjects/support.page';
 
@@ -21,6 +28,8 @@ describe('Support', () => {
     await Support.submitMessage();
 
     const toast = await Support.toast;
-    await expect(await toast.getText()).toBe('Your support request has been sent.');
+    await expect(await toast.getText()).toBe(
+      'Your support request has been sent.'
+    );
   });
 });

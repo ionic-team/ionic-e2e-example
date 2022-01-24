@@ -1,4 +1,9 @@
-export const config = {
+/**
+ * All not needed configurations, for this boilerplate, are removed.
+ * If you want to know which configuration options you have then you can
+ * check https://webdriver.io/docs/configurationfile
+ */
+export const config: WebdriverIO.Config = {
   autoCompileOpts: {
     autoCompile: true,
     // see https://github.com/TypeStrong/ts-node#cli-and-programmatic-options
@@ -14,7 +19,9 @@ export const config = {
       baseUrl: './',
     },
   },
-  baseUrl: "https://localhost",
+  baseUrl: process.env.SERVE_PORT
+    ? `http://localhost:${process.env.SERVE_PORT}`
+    : 'http://localhost:8100',
   //
   // ====================
   // Runner Configuration
@@ -26,31 +33,18 @@ export const config = {
   // ==================
   // Specify Test Files
   // ==================
-  // The test-files are specified in:
-  // - wdio.android.browser.conf.ts
-  // - wdio.android.app.conf.ts
-  // - wdio.ios.browser.conf.ts
-  // - wdio.ios.app.conf.ts
   //
-  /**
-   * NOTE: This is just a place holder and will be overwritten by each specific configuration
-   */
-  specs: [['./tests/specs/**/*.spec.ts']],
-  filesToWatch: ['./tests/**/*.ts'],
+  specs: ['./tests/**/*.spec.ts'],
   //
   // ============
   // Capabilities
   // ============
   // The capabilities are specified in:
-  // - wdio.android.browser.conf.ts
-  // - wdio.android.app.conf.ts
-  // - wdio.ios.browser.conf.ts
-  // - wdio.ios.app.conf.ts
+  // - wdio.android.config.ts
+  // - wdio.ios.config.ts
+  // - wdio.web.config.ts
   //
-  /**
-   * NOTE: This is just a place holder and will be overwritten by each specific configuration
-   */
-  //
+  capabilities: [],
   // ===================
   // Test Configurations
   // ===================
@@ -97,10 +91,10 @@ export const config = {
   // commands. Instead, they hook themselves up into the test process.
   //
   // Services are empty here but will be defined in the
-  // - wdio.shared.browserstack.conf.ts
-  // - wdio.shared.local.appium.conf.ts
-  // - wdio.shared.sauce.conf.ts
+  // - wdio.shared.appium.config.ts
+  // - wdio.web.config.ts
   // configuration files
+  services: [],
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: https://webdriver.io/docs/frameworks
@@ -130,8 +124,6 @@ export const config = {
      */
     timeout: 1200000,
   },
-
-  port: 4723,
   //
   // =====
   // Hooks
@@ -144,66 +136,4 @@ export const config = {
   /**
    * NOTE: No Hooks are used in this project, but feel free to add them if you need them.
    */
-  services: [
-    [
-      'appium',
-      {
-        // This will use the globally installed version of Appium
-        command: 'appium',
-        args: {
-          // This is needed to tell Appium that we can execute local ADB commands
-          // and to automatically download the latest version of ChromeDriver
-          relaxedSecurity: true,
-        },
-      },
-    ],
-    [
-      'chromedriver',
-      {
-        args: [
-          '--use-fake-ui-for-media-stream',
-          '--use-fake-device-for-media-stream',
-          // '--use-file-for-fake-video-capture=/Users/max/git/capacitor-testapp/tests/data/stefan_sif.y4m',
-        ],
-      },
-    ],
-  ],
-  // From wdio.shared.local.appium.conf.ts
-  capabilities: [
-    /*
-  {
-    browserName: 'chrome',
-    'wdio:devtoolsOptions': {
-      headless: true,
-    },
-    'goog:chromeOptions': {
-      prefs: {
-        // 'hardware.video_capture_enabled': 1,
-        // 'hardware.video_capture_allowed_urls': 'http://localhost:3000',
-        // 'hardware.audio_capture_allowed_urls': 'http://localhost:3000',
-        'profile.default_content_setting_values.media_stream_camera': 1,
-        'profile.default_content_setting_values.media_stream_mic': 1,
-        'profile.default_content_setting_values.notifications': 1,
-      },
-    },
-  }, 
-  */
-    {
-      platformName: 'iOS',
-      maxInstances: 1,
-      'appium:isHeadless': false,
-      // For W3C the appium capabilities need to have an extension prefix
-      // This is `appium:` for all Appium Capabilities which can be found here
-      // http://appium.io/docs/en/writing-running-appium/caps/
-      'appium:deviceName': 'iPhone 13 Pro Max',
-      'appium:platformVersion': '15.2',
-      'appium:orientation': 'PORTRAIT',
-      'appium:automationName': 'XCUITest',
-      // The path to the app
-      // 'appium:app': 'platforms/ios/build/app-debug.ipa',
-      'appium:app': './.ionic/App-ios-simulator.zip',
-      // Read the reset strategies very well, they differ per platform, see
-      // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
-      'appium:newCommandTimeout': 240,
-    }]
 };

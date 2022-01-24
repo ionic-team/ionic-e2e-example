@@ -1,10 +1,10 @@
 #!/bin/bash
 
-cordova build ios
-mkdir -p platforms/ios/build/appium/Payload
-cp -R platforms/ios/build/emulator/Ionic\ Conference\ App.app platforms/ios/build/appium/Payload
+ionic cordova build ios
+# mkdir -p platforms/ios/build/appium/Payload
+# cp -R platforms/ios/build/emulator/Ionic\ Conference\ App.app platforms/ios/build/appium/Payload
 
-zip -r platforms/ios/build/app-debug.ipa platforms/ios/build/appium
+# zip -r platforms/ios/build/app-debug.zip platforms/ios/build/appium
 
 # xcodebuild \
 #   clean \

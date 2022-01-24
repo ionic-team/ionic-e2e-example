@@ -1,4 +1,4 @@
-import { IonicComponent } from "./component";
+import { IonicComponent } from './component';
 
 export class IonicTextarea extends IonicComponent {
   constructor(selector: string) {
@@ -6,17 +6,21 @@ export class IonicTextarea extends IonicComponent {
   }
 
   setValue(value: string) {
-    return browser.execute((selector, value) => {
-      const el = document.querySelector(selector);
-      console.log('Found element', el, value, selector);
-      if (el) {
-        (el as any).value = value;
-      }
-    }, this.selector, value);
+    return browser.execute(
+      (selector: string, valueString: string) => {
+        const el = document.querySelector(selector);
+        console.log('Found element', el, valueString, selector);
+        if (el) {
+          (el as any).value = valueString;
+        }
+      },
+      this.selector,
+      value
+    );
   }
 
   getValue() {
-    return browser.execute((selector) => {
+    return browser.execute((selector: string) => {
       const el = document.querySelector(selector);
       if (el) {
         return (el as any).value;

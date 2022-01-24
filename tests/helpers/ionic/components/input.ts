@@ -7,26 +7,27 @@ export class IonicInput extends IonicComponent {
     super(selector);
   }
 
-  async setValue(value: string, { visibilityTimeout = 5000 }: ElementActionOptions = {}) {
-    const el = await Ionic$.$(this.selector);
+  async setValue(
+    value: string,
+    { visibilityTimeout = 5000 }: ElementActionOptions = {}
+  ) {
+    const el = await Ionic$.$(this.selector as string);
     await el.waitForDisplayed({ timeout: visibilityTimeout });
 
-    const ionTags = ['ion-input', 'ion-textarea']
+    const ionTags = ['ion-input', 'ion-textarea'];
     if (ionTags.indexOf(await el.getTagName()) >= 0) {
       const input = await el.$('input,textarea');
-      await input.setValue('');
       await input.setValue(value);
-      // return driver.elementSendKeys(input.elementId, value);
     } else {
       return el.setValue(value);
     }
   }
 
   async getValue({ visibilityTimeout = 5000 }: ElementActionOptions = {}) {
-    const el = await Ionic$.$(this.selector);
+    const el = await Ionic$.$(this.selector as string);
     await el.waitForDisplayed({ timeout: visibilityTimeout });
 
-    const ionTags = ['ion-input', 'ion-textarea']
+    const ionTags = ['ion-input', 'ion-textarea'];
     if (ionTags.indexOf(await el.getTagName()) >= 0) {
       const input = await el.$('input,textarea');
       return input.getValue();
@@ -34,5 +35,4 @@ export class IonicInput extends IonicComponent {
       return el.getValue();
     }
   }
-
 }

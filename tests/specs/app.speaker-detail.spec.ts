@@ -1,4 +1,11 @@
-import { Device, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  switchToWeb,
+  url,
+  waitForLoad,
+} from '../helpers';
 
 import SpeakerDetail from '../pageobjects/speaker-detail.page';
 

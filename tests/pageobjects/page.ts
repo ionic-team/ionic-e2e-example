@@ -1,2 +1,1 @@
-export default class Page {
-}
+export default class Page {}

@@ -27,15 +27,21 @@ class WebView {
       async () => {
         const currentContexts = await this.getCurrentContexts();
 
-        return currentContexts.length > 1 &&
-          currentContexts.find(context => context.toLowerCase().includes(CONTEXT_REF.WEBVIEW)) !== 'undefined';
-      }, {
-      // Wait a max of 45 seconds. Reason for this high amount is that loading
-      // a webview for iOS might take longer
-      timeout: 45000,
-      timeoutMsg: 'Webview context not loaded',
-      interval: 100,
-    });
+        return (
+          currentContexts.length > 1 &&
+          currentContexts.find((currentContext) =>
+            currentContext.toLowerCase().includes(CONTEXT_REF.WEBVIEW)
+          ) !== 'undefined'
+        );
+      },
+      {
+        // Wait a max of 45 seconds. Reason for this high amount is that loading
+        // a webview for iOS might take longer
+        timeout: 45000,
+        timeoutMsg: 'Webview context not loaded',
+        interval: 100,
+      }
+    );
 
     return context;
   }
@@ -47,7 +53,9 @@ class WebView {
     // The first context will always be the NATIVE_APP,
     // the second one will always be the WebdriverIO web page
     const currentContexts = await this.getCurrentContexts();
-    return driver.switchContext(currentContexts[context === CONTEXT_REF.NATIVE ? 0 : 1]);
+    return driver.switchContext(
+      currentContexts[context === CONTEXT_REF.NATIVE ? 0 : 1]
+    );
   }
 
   /**
@@ -66,12 +74,14 @@ class WebView {
       // This looks like the same implementation as for the w3c implementation for `browser.url('https://webdriver.io')`
       // That command also waits for the readiness of the page, see also the w3c specs
       // https://www.w3.org/TR/webdriver/#dfn-waiting-for-the-navigation-to-complete
-      async () => await driver.execute(() => document.readyState) === DOCUMENT_READY_STATE.COMPLETE,
+      async () =>
+        (await driver.execute(() => document.readyState)) ===
+        DOCUMENT_READY_STATE.COMPLETE,
       {
         timeout: 15000,
         timeoutMsg: 'Website not loaded',
         interval: 100,
-      },
+      }
     );
   }
 
@@ -85,8 +95,12 @@ class WebView {
     await this.switchToContext(CONTEXT_REF.NATIVE);
   }
 
-  async waitForWebViewIsDisplayedByXpath(isShown = true): Promise<boolean | void> {
-    const selector = browser.isAndroid ? '*//android.webkit.WebView' : '*//XCUIElementTypeWebView';
+  async waitForWebViewIsDisplayedByXpath(
+    isShown = true
+  ): Promise<boolean | void> {
+    const selector = browser.isAndroid
+      ? '*//android.webkit.WebView'
+      : '*//XCUIElementTypeWebView';
     (await $(selector)).waitForDisplayed({
       timeout: 45000,
       reverse: !isShown,
