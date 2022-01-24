@@ -16,7 +16,7 @@ One of the benefits of this stack compared to popular tools like [Cypress.io](ht
 
 ## Developing Tests
 
-One of the benefits to Web Native development is the ability to build most of your app in a browser. End-to-end testing should be no different. To facilitate this, we've provided a develop mode that connects to a running `ionic serve` (`npx ionic serve` ) or other dev server:
+One of the benefits to Web Native development is the ability to build most of your app in a browser. End-to-end testing should be no different. To facilitate this, we've provided a develop mode that connects to a running `ionic serve` or other dev server:
 
 `SERVE_PORT=8101 npm run ionic-e2e:develop`
 

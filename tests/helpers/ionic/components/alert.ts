@@ -1,8 +1,4 @@
-import { IonicComponent } from "./component";
-
-import { TapButtonOptions } from './button';
-import { Ionic$ } from "..";
-import { IonicButton } from ".";
+import { IonicComponent } from './component';
 
 export class IonicAlert extends IonicComponent {
   constructor(selector?: string | WebdriverIO.Element) {
@@ -16,5 +12,4 @@ export class IonicAlert extends IonicComponent {
   async button(buttonTitle: string) {
     return $(this.selector).$(`button=${buttonTitle}`);
   }
-
 }

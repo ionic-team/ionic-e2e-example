@@ -1,4 +1,4 @@
-import config from "./wdio.shared.appium.config";
+import config from './wdio.shared.appium.config';
 
 // ============
 // Capabilities
@@ -10,19 +10,19 @@ import config from "./wdio.shared.appium.config";
 config.capabilities = [
   {
     // The defaults you need to have in your config
-    platformName: "Android",
+    platformName: 'Android',
     maxInstances: 1,
     // For W3C the appium capabilities need to have an extension prefix
     // http://appium.io/docs/en/writing-running-appium/caps/
     // This is `appium:` for all Appium Capabilities which can be found here
-    "appium:deviceName": "Pixel_3_11.0",
-    "appium:platformVersion": "11",
-    "appium:orientation": "PORTRAIT",
-    "appium:automationName": "UiAutomator2",
+    'appium:deviceName': 'Pixel_3_11.0',
+    'appium:platformVersion': '11',
+    'appium:orientation': 'PORTRAIT',
+    'appium:automationName': 'UiAutomator2',
     // The path to the app
-    "appium:app": "platforms/android/app/build/outputs/apk/debug/app-debug.apk",
-    "appium:appWaitActivity": "com.ionicframework.conferenceapp.MainActivity",
-    "appium:newCommandTimeout": 240,
+    'appium:app': 'platforms/android/app/build/outputs/apk/debug/app-debug.apk',
+    'appium:appWaitActivity': 'com.ionicframework.conferenceapp.MainActivity',
+    'appium:newCommandTimeout': 240,
     // Read the reset strategies very well, they differ per platform, see
     // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
     // When enabling the noReset the App will NOT be re-installed between sessions

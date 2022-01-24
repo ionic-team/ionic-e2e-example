@@ -7,27 +7,27 @@ import {
   switchToWeb,
   Device,
   waitForLoad,
-} from "../helpers";
+} from '../helpers';
 
-import Tutorial from "../pageobjects/tutorial.page";
+import Tutorial from '../pageobjects/tutorial.page';
 
-describe("Tutorial", () => {
+describe('Tutorial', () => {
   before(async () => {
     await waitForLoad();
   });
 
   beforeEach(async () => {
     await switchToWeb();
-    await url("/tutorial");
+    await url('/tutorial');
     await setDevice(Device.Mobile);
-    await clearIndexedDB("_ionicstorage");
+    await clearIndexedDB('_ionicstorage');
   });
 
-  it("Should load swiper", async () => {
+  it('Should load swiper', async () => {
     await expect(await Tutorial.slides.$).toBeDisplayed();
   });
 
-  it("Should get to schedule", async () => {
+  it('Should get to schedule', async () => {
     await Tutorial.slides.swipeLeft();
     await Tutorial.slides.swipeLeft();
     await Tutorial.slides.swipeLeft();
@@ -36,14 +36,14 @@ describe("Tutorial", () => {
 
     await pause(1000);
 
-    await expect((await getUrl()).pathname).toBe("/app/tabs/schedule");
+    await expect((await getUrl()).pathname).toBe('/app/tabs/schedule');
   });
 
-  it("Should skip to schedule", async () => {
+  it('Should skip to schedule', async () => {
     await Tutorial.skip();
 
     await pause(1000);
 
-    await expect((await getUrl()).pathname).toBe("/app/tabs/schedule");
+    await expect((await getUrl()).pathname).toBe('/app/tabs/schedule');
   });
 });

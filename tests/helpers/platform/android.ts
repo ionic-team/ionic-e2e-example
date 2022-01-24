@@ -1,4 +1,4 @@
-import { ElementSelector } from "../definitions";
+import { ElementSelector } from '../definitions';
 
 export function findElementAndroid({ text }: ElementSelector) {
   if (text) {

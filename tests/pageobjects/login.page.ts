@@ -1,5 +1,5 @@
-import { Ionic$, IonicButton, IonicInput } from "../helpers";
-import Page from "./page";
+import { IonicButton, IonicInput } from '../helpers';
+import Page from './page';
 
 class Login extends Page {
   get username() {
@@ -9,7 +9,7 @@ class Login extends Page {
     return new IonicInput('ion-input [name="password"]');
   }
   get loginButton() {
-    return IonicButton.withTitle("Login");
+    return IonicButton.withTitle('Login');
   }
 
   async login(username: string, password: string) {

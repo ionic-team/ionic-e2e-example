@@ -1,4 +1,11 @@
-import { Device, pause, setDevice, url, waitForLoad, switchToWeb } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  url,
+  waitForLoad,
+  switchToWeb,
+} from '../helpers';
 
 import About from '../pageobjects/about.page';
 
@@ -23,21 +30,26 @@ describe('About', () => {
     const austinImage = await About.austinImage;
     await pause(500);
     console.log(await austinImage.getCSSProperty('opacity'));
-    await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(1);
-
+    await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(
+      1
+    );
 
     await location.open();
     await location.select(2);
     await location.ok();
     const chicagoImage = await About.chicagoImage;
     await pause(500);
-    await expect((await chicagoImage.getCSSProperty('opacity')).value).toEqual(1);
+    await expect((await chicagoImage.getCSSProperty('opacity')).value).toEqual(
+      1
+    );
 
     await location.open();
     await location.select(3);
     await location.ok();
     const seattleImage = await About.seattleImage;
     await pause(500);
-    await expect((await seattleImage.getCSSProperty('opacity')).value).toEqual(1);
+    await expect((await seattleImage.getCSSProperty('opacity')).value).toEqual(
+      1
+    );
   });
 });

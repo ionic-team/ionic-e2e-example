@@ -1,4 +1,4 @@
-import { IonicPage } from "./components";
+import { IonicPage } from './components';
 
 
 export class Ionic$ {

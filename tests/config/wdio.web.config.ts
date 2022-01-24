@@ -1,4 +1,4 @@
-import { config } from "./wdio.shared.config";
+import { config } from './wdio.shared.config';
 
 //
 // =====
@@ -9,8 +9,8 @@ import { config } from "./wdio.shared.config";
 // specs: ["./tests/**/*.spec.ts"],
 // but for watch mode we want to run all specs in 1 instance so
 // the specs are an array in an array
-config.specs = [config.specs];
-config.filesToWatch = [config.specs];
+config.specs = [['./tests/**/*.spec.ts']];
+config.filesToWatch = ['./tests/**/*.spec.ts'];
 
 //
 // ================
@@ -19,11 +19,11 @@ config.filesToWatch = [config.specs];
 //
 config.services = (config.services ? config.services : []).concat([
   [
-    "chromedriver",
+    'chromedriver',
     {
       args: [
-        "--use-fake-ui-for-media-stream",
-        "--use-fake-device-for-media-stream",
+        '--use-fake-ui-for-media-stream',
+        '--use-fake-device-for-media-stream',
       ],
     },
   ],
@@ -39,12 +39,12 @@ config.services = (config.services ? config.services : []).concat([
 config.capabilities = [
   {
     maxInstances: 1,
-    browserName: "chrome",
-    "goog:chromeOptions": {
+    browserName: 'chrome',
+    'goog:chromeOptions': {
       prefs: {
-        "profile.default_content_setting_values.media_stream_camera": 1,
-        "profile.default_content_setting_values.media_stream_mic": 1,
-        "profile.default_content_setting_values.notifications": 1,
+        'profile.default_content_setting_values.media_stream_camera': 1,
+        'profile.default_content_setting_values.media_stream_mic': 1,
+        'profile.default_content_setting_values.notifications': 1,
       },
     },
   },

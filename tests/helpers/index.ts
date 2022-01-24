@@ -1,5 +1,5 @@
 import type { Expect } from 'expect-webdriverio';
-export { Expect }
+export { Expect };
 
 export * from './definitions';
 export * from './platform/index';

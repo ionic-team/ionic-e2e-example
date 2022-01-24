@@ -16,25 +16,25 @@ export const config: WebdriverIO.Config = {
     // do please make sure "tsconfig-paths" is installed as dependency
     tsConfigPathsOpts: {
       paths: {},
-      baseUrl: "./",
+      baseUrl: './',
     },
   },
   baseUrl: process.env.SERVE_PORT
     ? `http://localhost:${process.env.SERVE_PORT}`
-    : "http://localhost:8100",
+    : 'http://localhost:8100',
   //
   // ====================
   // Runner Configuration
   // ====================
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
-  runner: "local",
+  runner: 'local',
   //
   // ==================
   // Specify Test Files
   // ==================
   //
-  specs: ["./tests/**/*.spec.ts"],
+  specs: ['./tests/**/*.spec.ts'],
   //
   // ============
   // Capabilities
@@ -44,13 +44,14 @@ export const config: WebdriverIO.Config = {
   // - wdio.ios.config.ts
   // - wdio.web.config.ts
   //
+  capabilities: [],
   // ===================
   // Test Configurations
   // ===================
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: process.env.VERBOSE === "true" ? "debug" : "error",
+  logLevel: process.env.VERBOSE === 'true' ? 'debug' : 'error',
   // Set specific log levels per logger
   // loggers:
   // - webdriver, webdriverio
@@ -100,7 +101,7 @@ export const config: WebdriverIO.Config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "mocha",
+  framework: 'mocha',
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,
   //
@@ -113,7 +114,7 @@ export const config: WebdriverIO.Config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ["spec"],
+  reporters: ['spec'],
   // Options to be passed to Jasmine.
   mochaOpts: {
     // Jasmine default timeout

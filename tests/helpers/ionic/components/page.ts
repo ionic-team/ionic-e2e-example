@@ -1,4 +1,4 @@
-import { IonicComponent } from "./component";
+import { IonicComponent } from './component';
 
 export class IonicPage extends IonicComponent {
   static async active() {
@@ -7,7 +7,7 @@ export class IonicPage extends IonicComponent {
         const currentPages = await $$('.ion-page:not(.ion-page-hidden)');
         for (const page of currentPages) {
           if ((await page.isDisplayed())) {
-            return true
+            return true;
           }
         }
         return false;

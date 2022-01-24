@@ -1,6 +1,5 @@
 import { pause, waitForElement } from '../..';
-import { Ionic$ } from "..";
-import { IonicComponent } from "./component";
+import { IonicComponent } from './component';
 
 export class IonicSelect extends IonicComponent {
   constructor(selector: string) {
@@ -8,7 +7,7 @@ export class IonicSelect extends IonicComponent {
   }
 
   async open() {
-    (await this.$).click();
+    await (await this.$).click();
     // Wait for the alert to popup
     await pause(1000);
   }
@@ -21,15 +20,17 @@ export class IonicSelect extends IonicComponent {
 
   async cancel() {
     const cancel = await waitForElement('.alert-button-role-cancel');
-    cancel.click();
+    await cancel.click();
     // Allow alert to close
-    await pause(500);
+    await cancel.waitForDisplayed({ reverse: true });
   }
 
   async ok() {
-    const ok = await waitForElement('.alert-button:not(.alert-button-role-cancel)');
-    ok.click();
+    const ok = await waitForElement(
+      '.alert-button:not(.alert-button-role-cancel)'
+    );
+    await ok.click();
     // Allow alert to close
-    await pause(500);
+    await ok.waitForDisplayed({ reverse: true });
   }
 }
