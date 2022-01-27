@@ -1,4 +1,3 @@
-import { SessionFlagsConfig } from '../../config/wdio.shared.config';
 import { clearIndexedDB } from '../storage';
 import WebView, { CONTEXT_REF } from '../webview';
 
@@ -105,11 +104,11 @@ export function setDevice(device: Device) {
     return Promise.resolve();
   }
 
-  switch (device) {
-    case Device.Mobile: {
-      return driver.setWindowSize(375, 812);
-    }
-  }
+  // switch (device) {
+  //   case Device.Mobile: {
+  //     return driver.setWindowSize(375, 812);
+  //   }
+  // }
 }
 
 export async function setLocation(lat: number, lng: number) {
@@ -125,16 +124,12 @@ export async function setLocation(lat: number, lng: number) {
   });
 }
 
-export async function restartApp() {
-  // if ((driver.config as SessionFlagsConfig).firstAppStart && !isWeb()) {
-  //   await driver.reset();
-  // }
-
-  // // Set the firstAppstart to false to say that the following test can be reset
-  // (driver.config as SessionFlagsConfig).firstAppStart = false;
-
+export async function restartApp(urlPath: string) {
+  // this is needed to set the "default" url on web so the DB can be cleared
   if (isWeb()) {
-    await url('/tutorial');
+    await url(urlPath);
   }
   await clearIndexedDB('_ionicstorage');
+  // Now load the correct url path
+  await url(urlPath);
 }

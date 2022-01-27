@@ -1,19 +1,11 @@
-import {
-  Device,
-  getUrl,
-  pause,
-  restartApp,
-  setDevice,
-  url,
-} from '../helpers';
+import { Device, getUrl, pause, restartApp, setDevice } from '../helpers';
 
 import Signup from '../pageobjects/signup.page';
 
 describe('Signup', () => {
   beforeEach(async () => {
-    await restartApp();
+    await restartApp('/signup');
     await setDevice(Device.Mobile);
-    await url('/signup');
     await pause(500);
   });
 

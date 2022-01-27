@@ -5,8 +5,7 @@ import Login from '../pageobjects/login.page';
 
 describe('Account', () => {
   beforeEach(async () => {
-    await restartApp();
-    await url('/login');
+    await restartApp('/login');
     await pause(500);
     await Login.login('test', 'test');
     await pause(500);

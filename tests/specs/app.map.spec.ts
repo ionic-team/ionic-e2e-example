@@ -1,18 +1,11 @@
-import {
-  Device,
-  pause,
-  restartApp,
-  setDevice,
-  url,
-} from '../helpers';
+import { Device, pause, restartApp, setDevice } from '../helpers';
 
 import Map from '../pageobjects/map.page';
 
 describe('Map', () => {
   beforeEach(async () => {
-    await restartApp();
+    await restartApp('/app/tabs/map');
     await setDevice(Device.Mobile);
-    await url('/app/tabs/map');
     await pause(500);
   });
 

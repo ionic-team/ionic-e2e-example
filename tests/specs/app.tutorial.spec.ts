@@ -2,7 +2,6 @@ import {
   clearIndexedDB,
   pause,
   getUrl,
-  url,
   setDevice,
   Device,
   restartApp,
@@ -12,9 +11,8 @@ import Tutorial from '../pageobjects/tutorial.page';
 
 describe('Tutorial', () => {
   beforeEach(async () => {
-    await restartApp();
+    await restartApp('/tutorial');
     await setDevice(Device.Mobile);
-    await url('/tutorial');
   });
 
   it('Should load swiper', async () => {

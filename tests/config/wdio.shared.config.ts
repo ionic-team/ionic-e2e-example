@@ -1,13 +1,9 @@
-export interface SessionFlagsConfig extends WebdriverIO.Config {
-  firstAppStart: boolean;
-}
-
 /**
  * All not needed configurations, for this boilerplate, are removed.
  * If you want to know which configuration options you have then you can
  * check https://webdriver.io/docs/configurationfile
  */
-export const config: SessionFlagsConfig = {
+export const config: WebdriverIO.Config = {
   autoCompileOpts: {
     autoCompile: true,
     // see https://github.com/TypeStrong/ts-node#cli-and-programmatic-options
@@ -128,17 +124,6 @@ export const config: SessionFlagsConfig = {
      */
     timeout: 1200000,
   },
-
-  // =====
-  // Session flags
-  // =====
-  //
-  /**
-   * Custom property that is used to determine if the app is already launched for the first time
-   * This property is needed because the first time the app is automatically started, so a double
-   * restart is not needed.
-   */
-  firstAppStart: true,
 
   //
   // =====
