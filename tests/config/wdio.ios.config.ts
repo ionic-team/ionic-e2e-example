@@ -32,7 +32,6 @@ config.capabilities = [
     // `"appium:noReset":false` means that the app is removed and installed
     // between each test
     'appium:noReset': true,
-    'appium:shouldTerminateApp': true,
   },
 ];
 config.maxInstances = 1;

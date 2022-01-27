@@ -1,4 +1,5 @@
 import { SessionFlagsConfig } from '../../config/wdio.shared.config';
+import { clearIndexedDB } from '../storage';
 import WebView, { CONTEXT_REF } from '../webview';
 
 export * from './android';
@@ -125,10 +126,15 @@ export async function setLocation(lat: number, lng: number) {
 }
 
 export async function restartApp() {
-  if (!(driver.config as SessionFlagsConfig).firstAppStart && !isWeb()) {
-    await driver.reset();
-  }
+  // if ((driver.config as SessionFlagsConfig).firstAppStart && !isWeb()) {
+  //   await driver.reset();
+  // }
 
-  // Set the firstAppstart to false to say that the following test can be reset
-  (driver.config as SessionFlagsConfig).firstAppStart = false;
+  // // Set the firstAppstart to false to say that the following test can be reset
+  // (driver.config as SessionFlagsConfig).firstAppStart = false;
+
+  if (isWeb()) {
+    await url('/tutorial');
+  }
+  await clearIndexedDB('_ionicstorage');
 }

@@ -13,9 +13,8 @@ import Tutorial from '../pageobjects/tutorial.page';
 describe('Tutorial', () => {
   beforeEach(async () => {
     await restartApp();
-    await url('/tutorial');
     await setDevice(Device.Mobile);
-    await clearIndexedDB('_ionicstorage');
+    await url('/tutorial');
   });
 
   it('Should load swiper', async () => {

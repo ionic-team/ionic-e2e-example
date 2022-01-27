@@ -34,6 +34,10 @@ config.capabilities = [
     // `"appium:noReset":false` means that the app is removed and installed
     // between each test
     'appium:noReset': true,
+    // This will prevent appium to restart the app between the sessions,
+    // meaning between each spec file
+    // @ts-ignore
+    'appium:dontStopAppOnReset': true,
   },
 ];
 
