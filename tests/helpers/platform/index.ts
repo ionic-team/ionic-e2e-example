@@ -1,3 +1,4 @@
+import { SessionFlagsConfig } from '../../config/wdio.shared.config';
 import WebView, { CONTEXT_REF } from '../webview';
 
 export * from './android';
@@ -121,4 +122,13 @@ export async function setLocation(lat: number, lng: number) {
     longitude: '' + lat,
     altitude: '94.23',
   });
+}
+
+export async function restartApp() {
+  if (!(driver.config as SessionFlagsConfig).firstAppStart && !isWeb()) {
+    await driver.reset();
+  }
+
+  // Set the firstAppstart to false to say that the following test can be reset
+  (driver.config as SessionFlagsConfig).firstAppStart = false;
 }

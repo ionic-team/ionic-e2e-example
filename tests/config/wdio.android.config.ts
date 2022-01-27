@@ -23,13 +23,17 @@ config.capabilities = [
     'appium:app': 'platforms/android/app/build/outputs/apk/debug/app-debug.apk',
     'appium:appWaitActivity': 'com.ionicframework.conferenceapp.MainActivity',
     'appium:newCommandTimeout': 240,
+    // This will automatically start the iOS app in a webview context,
+    // if your app starts in a native context then please put this to false and handle your own
+    // context switching
+    'appium:autoWebview': true,
     // Read the reset strategies very well, they differ per platform, see
     // http://appium.io/docs/en/writing-running-appium/other/reset-strategies/
     // When enabling the noReset the App will NOT be re-installed between sessions
     // This means that every test needs to maintain it's own state
     // `"appium:noReset":false` means that the app is removed and installed
     // between each test
-    // "appium:noReset": true,
+    'appium:noReset': true,
   },
 ];
 

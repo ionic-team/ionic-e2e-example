@@ -1,22 +1,11 @@
-import {
-  Device,
-  pause,
-  setDevice,
-  url,
-  waitForLoad,
-  switchToWeb,
-} from '../helpers';
+import { Device, pause, restartApp, setDevice, url } from '../helpers';
 
 import About from '../pageobjects/about.page';
 
 describe('About', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
+    await restartApp();
     await setDevice(Device.Mobile);
-    await switchToWeb();
     await url('/app/tabs/about');
     await pause(500);
   });

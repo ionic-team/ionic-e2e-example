@@ -1,22 +1,17 @@
 import {
   Device,
   pause,
+  restartApp,
   setDevice,
-  switchToWeb,
   url,
-  waitForLoad,
 } from '../helpers';
 
 import Map from '../pageobjects/map.page';
 
 describe('Map', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
+    await restartApp();
     await setDevice(Device.Mobile);
-    await switchToWeb();
     await url('/app/tabs/map');
     await pause(500);
   });

@@ -3,7 +3,7 @@ import {
   IonicContent,
   IonicMenu,
   IonicSegment,
-  isWeb,
+  isIOS,
 } from '../helpers';
 import Page from './page';
 
@@ -13,7 +13,7 @@ class Schedule extends Page {
   }
   get filterButton() {
     return new IonicButton(
-      `ion-buttons[slot="end"] > ion-button:nth-child(${isWeb() ? 2 : 1})`
+      `ion-buttons[slot="end"] > ion-button:nth-child(${isIOS() ? 1 : 2})`
     );
   }
   get segment() {

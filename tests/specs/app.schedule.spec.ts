@@ -1,21 +1,10 @@
-import {
-  Device,
-  pause,
-  setDevice,
-  url,
-  waitForLoad,
-  switchToWeb,
-} from '../helpers';
+import { Device, pause, restartApp, setDevice, url } from '../helpers';
 
 import Schedule from '../pageobjects/schedule.page';
 
 describe('Schedule', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await switchToWeb();
+    await restartApp();
     await url('/app/tabs/schedule');
     await setDevice(Device.Mobile);
     await pause(500);

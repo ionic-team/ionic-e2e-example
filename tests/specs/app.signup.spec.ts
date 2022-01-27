@@ -2,22 +2,17 @@ import {
   Device,
   getUrl,
   pause,
+  restartApp,
   setDevice,
-  switchToWeb,
   url,
-  waitForLoad,
 } from '../helpers';
 
 import Signup from '../pageobjects/signup.page';
 
 describe('Signup', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
+    await restartApp();
     await setDevice(Device.Mobile);
-    await switchToWeb();
     await url('/signup');
     await pause(500);
   });

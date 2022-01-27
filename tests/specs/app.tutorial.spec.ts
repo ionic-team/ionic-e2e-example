@@ -4,20 +4,15 @@ import {
   getUrl,
   url,
   setDevice,
-  switchToWeb,
   Device,
-  waitForLoad,
+  restartApp,
 } from '../helpers';
 
 import Tutorial from '../pageobjects/tutorial.page';
 
 describe('Tutorial', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await switchToWeb();
+    await restartApp();
     await url('/tutorial');
     await setDevice(Device.Mobile);
     await clearIndexedDB('_ionicstorage');
