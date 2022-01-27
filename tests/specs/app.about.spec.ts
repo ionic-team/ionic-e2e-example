@@ -29,7 +29,6 @@ describe('About', () => {
     await location.ok();
     const austinImage = await About.austinImage;
     await pause(500);
-    console.log(await austinImage.getCSSProperty('opacity'));
     await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(
       1
     );

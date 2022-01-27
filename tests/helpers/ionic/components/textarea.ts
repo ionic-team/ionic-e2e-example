@@ -9,7 +9,6 @@ export class IonicTextarea extends IonicComponent {
     return browser.execute(
       (selector: string, valueString: string) => {
         const el = document.querySelector(selector);
-        console.log('Found element', el, valueString, selector);
         if (el) {
           (el as any).value = valueString;
         }

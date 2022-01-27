@@ -1,5 +1,11 @@
-import { SchedulePage } from '../../src/app/pages/schedule/schedule';
-import { Device, Ionic$, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import {
+  Device,
+  pause,
+  setDevice,
+  switchToWeb,
+  url,
+  waitForLoad,
+} from '../helpers';
 
 import schedulePage from '../pageobjects/schedule.page';
 

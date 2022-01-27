@@ -49,8 +49,6 @@ export function getContext() {
 export async function url(newUrl: string) {
   const currentUrl = await browser.getUrl();
 
-  console.log('Current url', currentUrl);
-
   if (newUrl[0] === '/') {
     // Simulate baseUrl by grabbing the current url and navigating relative
     // to that

@@ -3,7 +3,6 @@ import {
   pause,
   setDevice,
   url,
-  waitForElement,
   waitForLoad,
   switchToWeb,
 } from '../helpers';
