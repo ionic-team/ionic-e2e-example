@@ -39,7 +39,7 @@ describe('Tutorial', () => {
     await expect((await getUrl()).pathname).toBe('/app/tabs/schedule');
   });
 
-  it('Should skip to schedule', async () => {
+  it.skip('Should skip to schedule', async () => {
     await Tutorial.skip();
 
     await pause(1000);
