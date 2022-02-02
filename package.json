@@ -18,7 +18,7 @@
     "ionic-e2e:run:web": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.web.config.ts",
     "ionic-e2e:run:ios": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.ios.config.ts",
     "ionic-e2e:run:android": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.android.config.ts",
-    "appflow:test":"TS_NODE_PROJECT=tests/tsconfig.json wdio tests/config/wdio.appflow.config.ts"
+    "appflow:test": "TS_NODE_PROJECT=tests/tsconfig.json wdio tests/config/wdio.appflow.config.ts"
   },
   "repository": {
     "type": "git",
@@ -39,6 +39,7 @@
     "@ionic-native/status-bar": "5.0.0-beta.15",
     "@ionic/angular": "^6.0.0-rc.2",
     "@ionic/storage": "^2.1.3",
+    "@ionic/wdio-reporter": "^1.0.1",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-device": "^2.0.3",
     "cordova-plugin-inappbrowser": "^3.2.0",

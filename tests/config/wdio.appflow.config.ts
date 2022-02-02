@@ -1,3 +1,4 @@
+import IonicE2EWdioReporter from '@ionic/wdio-reporter';
 export const config = {
   autoCompileOpts: {
     autoCompile: true,
@@ -121,10 +122,7 @@ export const config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: [
-    'spec',
-    ['json',{
-      outputDir: './Results'
-  }]
+    [IonicE2EWdioReporter, {}]
   ],
   // Options to be passed to Jasmine.
   mochaOpts: {
