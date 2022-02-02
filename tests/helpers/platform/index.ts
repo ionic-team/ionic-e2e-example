@@ -1,39 +1,34 @@
-import { clearIndexedDB } from '../storage';
 import WebView, { CONTEXT_REF } from '../webview';
 
 export * from './android';
 export * from './ios';
 
-export enum Device {
-  Mobile = 'mobile',
-}
-
 export async function waitForLoad() {
   if (isWeb()) {
-    return;
+    return Promise.resolve();
   }
-  await WebView.waitForWebsiteLoaded();
+  return WebView.waitForWebsiteLoaded();
 }
 
 export async function switchToNative() {
   if (isWeb()) {
-    return;
+    return Promise.resolve();
   }
 
-  await WebView.switchToContext(CONTEXT_REF.NATIVE);
+  return WebView.switchToContext(CONTEXT_REF.NATIVE);
 }
 
 export async function switchToWeb() {
   if (isWeb()) {
-    return;
+    return Promise.resolve();
   }
 
-  await WebView.switchToContext(CONTEXT_REF.WEBVIEW);
+  return WebView.switchToContext(CONTEXT_REF.WEBVIEW);
 }
 
-export function getContexts() {
+export async function getContexts() {
   if (isWeb()) {
-    return ['WEBVIEW'];
+    return Promise.resolve(['WEBVIEW']);
   }
 
   return driver.getContexts();
@@ -41,7 +36,7 @@ export function getContexts() {
 
 export function getContext() {
   if (isWeb()) {
-    return 'WEBVIEW';
+    return Promise.resolve('WEBVIEW');
   }
 
   return driver.getContext();
@@ -99,22 +94,10 @@ export function isWeb() {
   return !driver.isMobile;
 }
 
-export function setDevice(device: Device) {
-  if (!isWeb()) {
-    return Promise.resolve();
-  }
-
-  // switch (device) {
-  //   case Device.Mobile: {
-  //     return driver.setWindowSize(375, 812);
-  //   }
-  // }
-}
-
 export async function setLocation(lat: number, lng: number) {
   if (isWeb()) {
     // Not available on web
-    return;
+    return Promise.resolve();
   }
 
   return driver.setGeoLocation({
@@ -127,9 +110,8 @@ export async function setLocation(lat: number, lng: number) {
 export async function restartApp(urlPath: string) {
   // this is needed to set the "default" url on web so the DB can be cleared
   if (isWeb()) {
-    await url(urlPath);
+    return url(urlPath);
   }
-  await clearIndexedDB('_ionicstorage');
-  // Now load the correct url path
-  await url(urlPath);
+
+  return Promise.resolve();
 }

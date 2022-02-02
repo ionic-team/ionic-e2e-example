@@ -1,8 +1,8 @@
 import {
-  Device,
+  clearIndexedDB,
   pause,
   restartApp,
-  setDevice,
+  url,
 } from '../helpers';
 
 import SpeakerList from '../pageobjects/speaker-list.page';
@@ -10,7 +10,8 @@ import SpeakerList from '../pageobjects/speaker-list.page';
 describe('Speaker List', () => {
   beforeEach(async () => {
     await restartApp('/app/tabs/speakers');
-    await setDevice(Device.Mobile);
+    await clearIndexedDB('_ionicstorage');
+    await url('/app/tabs/speakers');
     await pause(500);
   });
 

@@ -2,9 +2,8 @@ import {
   clearIndexedDB,
   pause,
   getUrl,
-  setDevice,
-  Device,
   restartApp,
+  url,
 } from '../helpers';
 
 import Tutorial from '../pageobjects/tutorial.page';
@@ -12,7 +11,8 @@ import Tutorial from '../pageobjects/tutorial.page';
 describe('Tutorial', () => {
   beforeEach(async () => {
     await restartApp('/tutorial');
-    await setDevice(Device.Mobile);
+    await clearIndexedDB('_ionicstorage');
+    await url('/tutorial');
   });
 
   it('Should load swiper', async () => {

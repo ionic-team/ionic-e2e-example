@@ -13,19 +13,19 @@ class Tutorial extends Page {
   }
 
   async swipeLeft() {
-    await this.slides.swipeLeft();
+    return this.slides.swipeLeft();
   }
 
   async swipeRight() {
-    await this.slides.swipeRight();
+    return this.slides.swipeRight();
   }
 
   async skip() {
-    await this.skipButton.tap();
+    return this.skipButton.tap();
   }
 
   async continue() {
-    await this.continueButton.tap();
+    return this.continueButton.tap();
   }
 }
 

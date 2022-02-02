@@ -1,11 +1,12 @@
-import { Device, pause, restartApp, setDevice } from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import About from '../pageobjects/about.page';
 
 describe('About', () => {
   beforeEach(async () => {
     await restartApp('/app/tabs/about');
-    await setDevice(Device.Mobile);
+    await clearIndexedDB('_ionicstorage');
+    await url('/app/tabs/about');
     await pause(500);
   });
 

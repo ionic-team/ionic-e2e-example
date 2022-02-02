@@ -9,7 +9,7 @@ export class IonicSelect extends IonicComponent {
   async open() {
     await (await this.$).click();
     // Wait for the alert to popup
-    await pause(1000);
+    return pause(1000);
   }
 
   async select(n: number) {
@@ -22,7 +22,7 @@ export class IonicSelect extends IonicComponent {
     const cancel = await waitForElement('.alert-button-role-cancel');
     await cancel.click();
     // Allow alert to close
-    await cancel.waitForDisplayed({ reverse: true });
+    return cancel.waitForDisplayed({ reverse: true });
   }
 
   async ok() {
@@ -31,6 +31,6 @@ export class IonicSelect extends IonicComponent {
     );
     await ok.click();
     // Allow alert to close
-    await ok.waitForDisplayed({ reverse: true });
+    return ok.waitForDisplayed({ reverse: true });
   }
 }

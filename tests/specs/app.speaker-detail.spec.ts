@@ -1,11 +1,12 @@
-import { Device, pause, restartApp, setDevice } from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import SpeakerDetail from '../pageobjects/speaker-detail.page';
 
 describe('Speaker Detail', () => {
   beforeEach(async () => {
     await restartApp('/app/tabs/speakers/speaker-details/3');
-    await setDevice(Device.Mobile);
+    await clearIndexedDB('_ionicstorage');
+    await url('/app/tabs/speakers/speaker-details/3');
     await pause(500);
   });
 

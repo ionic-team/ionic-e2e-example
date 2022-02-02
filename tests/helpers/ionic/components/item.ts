@@ -20,6 +20,6 @@ export class IonicItem extends IonicComponent {
     if (scroll) {
       await button.scrollIntoView();
     }
-    await button.click();
+    return button.click();
   }
 }
