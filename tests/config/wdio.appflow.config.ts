@@ -122,6 +122,7 @@ export const config = {
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
   reporters: [
+    'spec',
     [IonicE2EWdioReporter, {}]
   ],
   // Options to be passed to Jasmine.
@@ -157,17 +158,9 @@ export const config = {
           // This is needed to tell Appium that we can execute local ADB commands
           // and to automatically download the latest version of ChromeDriver
           relaxedSecurity: true,
+          // Only log Appium logs in verbose mode
+          ...(process.env.VERBOSE === 'true' ? { log: './appium.log' } : {}),
         },
-      },
-    ],
-    [
-      'chromedriver',
-      {
-        args: [
-          '--use-fake-ui-for-media-stream',
-          '--use-fake-device-for-media-stream',
-          // '--use-file-for-fake-video-capture=/Users/max/git/capacitor-testapp/tests/data/stefan_sif.y4m',
-        ],
       },
     ],
   ],
