@@ -32,7 +32,7 @@ config.capabilities = [
 
 
 config.reporters =[
-    'spec',
+    ['spec', {realtimeReporting: true}],
     [IonicE2EWdioReporter as any, {}]
 ];
 

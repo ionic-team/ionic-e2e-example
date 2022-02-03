@@ -27,9 +27,6 @@ class WebView {
       async () => {
         const currentContexts = await this.getCurrentContexts();
 
-        console.log(currentContexts);
-        // throw new Error(currentContexts.join(', '))
-
         return (
           currentContexts.length > 1 &&
           currentContexts.find((currentContext) =>
