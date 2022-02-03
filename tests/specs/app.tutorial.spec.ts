@@ -1,10 +1,4 @@
-import {
-  clearIndexedDB,
-  pause,
-  getUrl,
-  restartApp,
-  url,
-} from '../helpers';
+import { clearIndexedDB, pause, getUrl, restartApp, url } from '../helpers';
 
 import Tutorial from '../pageobjects/tutorial.page';
 
