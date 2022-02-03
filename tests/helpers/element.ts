@@ -20,6 +20,5 @@ export async function tryAcceptAlert() {
     return driver.acceptAlert();
   } catch (e) {
     console.warn('No alert to accept');
-    return Promise.resolve();
   }
 }

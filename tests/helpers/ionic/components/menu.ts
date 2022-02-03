@@ -28,7 +28,5 @@ export class IonicMenu extends IonicComponent {
     if (delayForAnimation) {
       return driver.pause(500);
     }
-
-    return Promise.resolve();
   }
 }

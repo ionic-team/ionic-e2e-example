@@ -112,6 +112,4 @@ export async function restartApp(urlPath: string) {
   if (isWeb()) {
     return url(urlPath);
   }
-
-  return Promise.resolve();
 }
