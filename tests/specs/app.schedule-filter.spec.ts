@@ -1,16 +1,11 @@
-import { SchedulePage } from '../../src/app/pages/schedule/schedule';
-import { Device, Ionic$, pause, setDevice, switchToWeb, url, waitForLoad } from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import schedulePage from '../pageobjects/schedule.page';
 
 describe('Schedule Filter', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await setDevice(Device.Mobile);
-    await switchToWeb();
+    await restartApp('/app/tabs/schedule');
+    await clearIndexedDB('_ionicstorage');
     await url('/app/tabs/schedule');
     await pause(200);
     await schedulePage.filterButton.tap();

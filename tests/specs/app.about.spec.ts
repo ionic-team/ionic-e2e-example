@@ -1,22 +1,11 @@
-import {
-  Device,
-  pause,
-  setDevice,
-  url,
-  waitForLoad,
-  switchToWeb,
-} from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import About from '../pageobjects/about.page';
 
 describe('About', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await setDevice(Device.Mobile);
-    await switchToWeb();
+    await restartApp('/app/tabs/about');
+    await clearIndexedDB('_ionicstorage');
     await url('/app/tabs/about');
     await pause(500);
   });
@@ -29,7 +18,6 @@ describe('About', () => {
     await location.ok();
     const austinImage = await About.austinImage;
     await pause(500);
-    console.log(await austinImage.getCSSProperty('opacity'));
     await expect((await austinImage.getCSSProperty('opacity')).value).toEqual(
       1
     );

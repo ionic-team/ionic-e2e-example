@@ -1,22 +1,16 @@
 import {
-  Device,
+  clearIndexedDB,
   pause,
-  setDevice,
-  switchToWeb,
+  restartApp,
   url,
-  waitForLoad,
 } from '../helpers';
 
 import SpeakerList from '../pageobjects/speaker-list.page';
 
 describe('Speaker List', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await setDevice(Device.Mobile);
-    await switchToWeb();
+    await restartApp('/app/tabs/speakers');
+    await clearIndexedDB('_ionicstorage');
     await url('/app/tabs/speakers');
     await pause(500);
   });

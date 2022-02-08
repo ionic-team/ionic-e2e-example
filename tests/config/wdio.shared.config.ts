@@ -124,6 +124,7 @@ export const config: WebdriverIO.Config = {
      */
     timeout: 1200000,
   },
+
   //
   // =====
   // Hooks

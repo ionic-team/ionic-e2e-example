@@ -22,7 +22,7 @@ export class IonicSlides extends IonicComponent {
     const y = Math.round(SwiperRectangles.y + SwiperRectangles.height / 2);
 
     // Execute the gesture by providing a starting position and an end position
-    await Gestures.swipe(
+    return Gestures.swipe(
       // Here we start on the right of the Swiper. To make sure that we don't touch the outer most right
       // part of the screen we take 10% of the x-position. The y-position has already been determined.
       {
@@ -46,7 +46,7 @@ export class IonicSlides extends IonicComponent {
     const y = Math.round(SwiperRectangles.y + SwiperRectangles.height / 2);
 
     // Execute the gesture by providing a starting position and an end position
-    await Gestures.swipe(
+    return Gestures.swipe(
       // Here we start on the left of the Swiper. To make sure that we don't touch the outer most left
       // part of the screen we add 10% to the x-position. The y-position has already been determined.
       { x: Math.round(SwiperRectangles.x + SwiperRectangles.width * 0.1), y },
@@ -63,7 +63,7 @@ export class IonicSlides extends IonicComponent {
    * Get the Swiper position and size
    */
   async getSwiperRectangles(): Promise<RectReturn> {
-    const slides2 = await Ionic$.$(this.selector);
+    const slides2 = await Ionic$.$(this.selector as string);
     // Get the rectangles of the Swiper and store it in a global that will be used for a next call.
     // We dont want ask for the rectangles of the Swiper if we already know them.
     // This will save unneeded webdriver calls.

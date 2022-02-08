@@ -91,7 +91,7 @@ export class Gestures {
    * Swipe down based on a percentage
    */
   static async swipeDown(percentage = 1) {
-    await this.swipeOnPercentage(
+    return this.swipeOnPercentage(
       this.calculateXY(SWIPE_DIRECTION.down.start, percentage),
       this.calculateXY(SWIPE_DIRECTION.down.end, percentage)
     );
@@ -101,7 +101,7 @@ export class Gestures {
    * Swipe Up based on a percentage
    */
   static async swipeUp(percentage = 1) {
-    await this.swipeOnPercentage(
+    return this.swipeOnPercentage(
       this.calculateXY(SWIPE_DIRECTION.up.start, percentage),
       this.calculateXY(SWIPE_DIRECTION.up.end, percentage)
     );
@@ -111,7 +111,7 @@ export class Gestures {
    * Swipe left based on a percentage
    */
   static async swipeLeft(percentage = 1) {
-    await this.swipeOnPercentage(
+    return this.swipeOnPercentage(
       this.calculateXY(SWIPE_DIRECTION.left.start, percentage),
       this.calculateXY(SWIPE_DIRECTION.left.end, percentage)
     );
@@ -121,7 +121,7 @@ export class Gestures {
    * Swipe right based on a percentage
    */
   static async swipeRight(percentage = 1) {
-    await this.swipeOnPercentage(
+    return this.swipeOnPercentage(
       this.calculateXY(SWIPE_DIRECTION.right.start, percentage),
       this.calculateXY(SWIPE_DIRECTION.right.end, percentage)
     );
@@ -143,7 +143,7 @@ export class Gestures {
       to
     );
 
-    await this.swipe(pressOptions, moveToScreenCoordinates);
+    return this.swipe(pressOptions, moveToScreenCoordinates);
   }
 
   /**
@@ -174,7 +174,7 @@ export class Gestures {
       },
     ]);
     // Add a pause, just to make sure the swipe is done
-    await driver.pause(1000);
+    return driver.pause(1000);
   }
 
   /**

@@ -1,22 +1,11 @@
-import {
-  Device,
-  pause,
-  setDevice,
-  switchToWeb,
-  url,
-  waitForLoad,
-} from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import Login from '../pageobjects/login.page';
 
 describe('Login', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await setDevice(Device.Mobile);
-    await switchToWeb();
+    await restartApp('/login');
+    await clearIndexedDB('_ionicstorage');
     await url('/login');
     await pause(500);
   });

@@ -7,7 +7,7 @@ export async function waitForElement(selector: string, { visibilityTimeout = 500
 }
 
 export async function blur(selector: string, { visibilityTimeout = 5000 }: ElementActionOptions = {}) {
-  browser.execute((sel) => {
+  return browser.execute((sel) => {
     const el = document.querySelector(sel);
     if (el) {
       (el as any).blur();
@@ -17,7 +17,7 @@ export async function blur(selector: string, { visibilityTimeout = 5000 }: Eleme
 
 export async function tryAcceptAlert() {
   try {
-    await driver.acceptAlert();
+    return driver.acceptAlert();
   } catch (e) {
     console.warn('No alert to accept');
   }

@@ -18,7 +18,7 @@ export class IonicSegment extends IonicComponent {
         return new IonicSegmentButton(button);
       }
     }
-    return null;
+    return Promise.resolve(null);
   }
 }
 
@@ -32,6 +32,6 @@ export class IonicSegmentButton extends IonicComponent {
     if (scroll) {
       await button.scrollIntoView();
     }
-    await button.click();
+    return button.click();
   }
 }

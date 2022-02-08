@@ -15,7 +15,7 @@ class Signup extends Page {
   async signup(username: string, password: string) {
     await this.username.setValue(username);
     await this.password.setValue(password);
-    await this.signupButton.tap();
+    return this.signupButton.tap();
   }
 }
 
