@@ -26,7 +26,7 @@ export class IonicMenu extends IonicComponent {
 
     // Let the menu animate open/closed
     if (delayForAnimation) {
-      await driver.pause(500);
+      return driver.pause(500);
     }
   }
 }

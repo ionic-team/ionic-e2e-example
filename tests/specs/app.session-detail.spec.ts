@@ -1,24 +1,13 @@
-import {
-  Device,
-  pause,
-  setDevice,
-  url,
-  waitForLoad,
-  switchToWeb,
-} from '../helpers';
+import { clearIndexedDB, pause, restartApp, url } from '../helpers';
 
 import Schedule from '../pageobjects/schedule.page';
 import SessionDetail from '../pageobjects/session-detail.page';
 
 describe('Session Detail', () => {
-  before(async () => {
-    await waitForLoad();
-  });
-
   beforeEach(async () => {
-    await switchToWeb();
+    await restartApp('/app/tabs/schedule/session/1');
+    await clearIndexedDB('_ionicstorage');
     await url('/app/tabs/schedule/session/1');
-    await setDevice(Device.Mobile);
     await pause(500);
   });
 

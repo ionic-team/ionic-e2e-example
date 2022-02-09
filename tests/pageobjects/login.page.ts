@@ -15,7 +15,7 @@ class Login extends Page {
   async login(username: string, password: string) {
     await this.username.setValue(username);
     await this.password.setValue(password);
-    await this.loginButton.tap();
+    return this.loginButton.tap();
   }
 }
 

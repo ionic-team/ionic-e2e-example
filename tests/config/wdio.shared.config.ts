@@ -1,3 +1,6 @@
+import IonicE2EWdioReporter from '@ionic/wdio-reporter';
+import IonicE2EWdioService from '@ionic/wdio-service';
+
 /**
  * All not needed configurations, for this boilerplate, are removed.
  * If you want to know which configuration options you have then you can
@@ -34,7 +37,7 @@ export const config: WebdriverIO.Config = {
   // Specify Test Files
   // ==================
   //
-  specs: ['./tests/**/*.spec.ts'],
+  specs: [['./tests/**/*.spec.ts']],
   //
   // ============
   // Capabilities
@@ -94,7 +97,9 @@ export const config: WebdriverIO.Config = {
   // - wdio.shared.appium.config.ts
   // - wdio.web.config.ts
   // configuration files
-  services: [],
+  services: [
+    [IonicE2EWdioService, {}]
+  ],
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
   // see also: https://webdriver.io/docs/frameworks
@@ -114,7 +119,9 @@ export const config: WebdriverIO.Config = {
   // Test reporter for stdout.
   // The only one supported by default is 'dot'
   // see also: https://webdriver.io/docs/dot-reporter
-  reporters: ['spec'],
+  reporters: [
+    [IonicE2EWdioReporter, {}],
+    'spec'],
   // Options to be passed to Jasmine.
   mochaOpts: {
     // Jasmine default timeout
@@ -124,6 +131,7 @@ export const config: WebdriverIO.Config = {
      */
     timeout: 1200000,
   },
+
   //
   // =====
   // Hooks

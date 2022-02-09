@@ -1,4 +1,10 @@
-import { IonicButton, IonicContent, IonicMenu, IonicSegment } from '../helpers';
+import {
+  IonicButton,
+  IonicContent,
+  IonicMenu,
+  IonicSegment,
+  isIOS,
+} from '../helpers';
 import Page from './page';
 
 class Schedule extends Page {
@@ -6,7 +12,9 @@ class Schedule extends Page {
     return new IonicMenu();
   }
   get filterButton() {
-    return new IonicButton('ion-buttons[slot="end"] > ion-button:nth-child(2)');
+    return new IonicButton(
+      `ion-buttons[slot="end"] > ion-button:nth-child(${isIOS() ? 1 : 2})`
+    );
   }
   get segment() {
     return new IonicSegment('ion-segment');
