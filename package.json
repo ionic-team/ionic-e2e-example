@@ -18,7 +18,7 @@
     "ionic-e2e:run:web": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.web.config.ts",
     "ionic-e2e:run:ios": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.ios.config.ts",
     "ionic-e2e:run:android": "TS_NODE_PROJECT=tests/tsconfig.json  wdio tests/config/wdio.android.config.ts",
-    "appflow:test": "TS_NODE_PROJECT=tests/tsconfig.json wdio tests/config/wdio.appflow.config.ts"
+    "appflow:test": "VERBOSE=true TS_NODE_PROJECT=tests/tsconfig.json wdio tests/config/wdio.appflow.config.ts"
   },
   "repository": {
     "type": "git",
