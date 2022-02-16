@@ -19,6 +19,10 @@ config.capabilities = [
       'appium:deviceName': process.env.CI_TEST_DEVICE_NAME,
       'appium:platformName': process.env.CI_TEST_PLATFORM_NAME,
       'appium:platformVersion': process.env.CI_TEST_PLATFORM_VERSION,
+      // This will automatically start the iOS app in a webview context,
+      // if your app starts in a native context then please put this to false and handle your own
+      // context switching
+      'appium:autoWebview': true,
       // The path to the app
       // 'appium:app': 'platforms/ios/build/app-debug.ipa',
       // Read the reset strategies very well, they differ per platform, see
