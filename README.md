@@ -49,7 +49,7 @@ npm run ionic-e2e:run:android
 npm run ionic-e2e:run:web
 ```
 
-> **NOTE:** Because this conference apps starts with a Webview the [Android](tests/config/wdio.android.config.ts) and [iOS](tests/config/wdio.ios.config.ts) 
+> **NOTE:** Because this conference apps starts with a Webview the [Android](tests/config/wdio.android.config.ts) and [iOS](tests/config/wdio.ios.config.ts)
 configs will automatically set the webview for you with this capability `appium:autoWebview`. This means you don't need to switch to the correct Webview yourself.
 
 ## Configuring WebdriverIO and Appium
@@ -240,3 +240,4 @@ await slides.swipeRight();
 const toast = new IonicToast();
 const currentToastText = await toast.getText();
 ```
+
