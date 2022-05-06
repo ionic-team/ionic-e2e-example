@@ -32,10 +32,11 @@ config.capabilities = [
       'appium:orientation': 'PORTRAIT',
       'appium:automationName': 'XCUITest',
       'appium:newCommandTimeout': 240,
-    }]
+    }
+];
 
 
-config.reporters =[
+config.reporters = [
     ['spec', {realtimeReporting: true}],
     [IonicE2EWdioReporter as any, {}]
 ];
