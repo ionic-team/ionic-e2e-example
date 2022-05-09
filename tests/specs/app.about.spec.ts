@@ -5,7 +5,7 @@ import About from '../pageobjects/about.page';
 describe('About', () => {
   beforeEach(async () => {
     await restartApp('/app/tabs/about');
-    await clearIndexedDB('_ionicstorage');
+    // await clearIndexedDB('_ionicstorage');
     await url('/app/tabs/about');
     await pause(500);
   });
